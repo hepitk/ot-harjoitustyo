@@ -34,6 +34,8 @@ Author: hepitk <heino.pitkanen@helsinki.fi>
 Date:   Tue Mar 23 10:38:11 2021 +0200
 
     removed toinen.txt and changed tiedosto.txt to eka.txt
+    
+    EDIT
 
  stuff/{tiedosto.txt => eka.txt} | 0
  toinen.txt                      | 1 -
