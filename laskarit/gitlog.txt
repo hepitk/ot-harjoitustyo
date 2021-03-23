@@ -1,0 +1,96 @@
+commit 18c7573a7fee4d7decdd60a33d992b9bb7ac0bb5
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Tue Mar 23 10:52:00 2021 +0200
+
+    removed file1 and changed file2 to file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7e826ba3f9f74c4a133cc5edbb9b285e0410e3bc
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Tue Mar 23 10:49:05 2021 +0200
+
+    added files 1, 2 and 3
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f28879e79fe8e8dfea1a7d8d80811728a5e67fcf
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Tue Mar 23 10:42:51 2021 +0200
+
+    altered eka.txt and kolmas.txt
+
+ kolmas.txt    | 2 +-
+ stuff/eka.txt | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 071deefe101c24fce132c4651904b6b13131cb50
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Tue Mar 23 10:38:11 2021 +0200
+
+    removed toinen.txt and changed tiedosto.txt to eka.txt
+
+ stuff/{tiedosto.txt => eka.txt} | 0
+ toinen.txt                      | 1 -
+ 2 files changed, 1 deletion(-)
+
+commit 7e990131e300334c6e4e6e7b5aecf1cc9a1fa952
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Tue Mar 23 10:26:56 2021 +0200
+
+    altered tiedosto.txt
+
+ stuff/tiedosto.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 69600b897b664174a631e2c41dc79d9b3e5b8bcc
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Tue Mar 23 10:26:08 2021 +0200
+
+    copied text to tiedosto.txt
+
+ stuff/tiedosto.txt | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+commit 08f338723b6188e506bc13fd14c72803cc139b6d
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Tue Mar 23 10:00:33 2021 +0200
+
+    stuff lisätty
+
+ stuff/tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 88ed56c8e0bd17edc89a613df9c1339503ed061e
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Mon Mar 22 19:49:23 2021 +0200
+
+    toinen.txt muutos ja kolmas.txt muutos
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit ed3caeea767e040ad6a550beca018b24cf2ce2b5
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Mon Mar 22 19:13:21 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 5349a3925ddb30cbca3b63cbd090fb41560844d7
+Author: hepitk <heino.pitkanen@helsinki.fi>
+Date:   Mon Mar 22 15:24:28 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
