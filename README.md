@@ -7,3 +7,5 @@ Harjoittelen *asioita*!
 [komentorivi.txt](https://github.com/hepitk/ot-harjoitustyo/blob/master/laskarit/komentorivi.txt)
 
 Muutos1.
+
+Muutos2.
