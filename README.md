@@ -10,4 +10,4 @@ Muutos1.
 
 Muutos2.
 
-[maarittely.md](https://github.com/hepitk/ot-harjoitustyo/blob/master/laskarit/maarittely.md)
+[maarittely.md](https://github.com/hepitk/ot-harjoitustyo/blob/master/maarittely.md)
