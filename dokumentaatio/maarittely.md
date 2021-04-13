@@ -11,11 +11,13 @@ Toiminnallisuus:
 - Sovelluksessa on graafinen käyttöliittymä, josta valitaan ensin, onko kaupunki kaupassa ostajana vai myyjänä
 - Seuraavaksi sovellukseen annettaisiin kaupunginosa, sillä pohjat vaihtelevat hieman kaupunginosan mukaan
 - Lopuksi käyttäjä antaa ainakin seuraavat tiedot (kaikkia tietoja ei tarvita jokaisessa kaupassa): myyjä ja ostaja (nimi, y-tunnus tai henkilötunnus, osoite, yhteyhenkilön nimi ja sähköposti), kiinteistötunnus ja kauppahinta (Lista täydentyy myöhemmin)
+- Käyttäjä voi lisätä omia tietoja, paikkamerkkejä ja pohjia järjestelmään
 
 Tekninen toteutus:
 
 - Tarkoitus on käyttää Pythonin python-docx-kirjastoa apuna (https://python-docx.readthedocs.io/en/latest/)
-- Word-muotoiset pohjat löytyvät jo valmiiksi sovelluksen kansiosta, joten sovellus vain täyttäisi tarvittavat tiedot pohjien oikeisiin kohtiin ja tuloksena olisi täytetty pohja. Tyhjät pohjat saan Vantaan kaupungilta.
+- Word-muotoiset pohjat löytyvät jo valmiiksi sovelluksen kansiosta, joten sovellus vain täyttäisi tarvittavat tiedot pohjien oikeisiin kohtiin määriteltynä paikkamerkkejä käyttäen ja tuloksena olisi täytetty pohja. Tyhjät pohjat saan Vantaan kaupungilta.
+- Tarvittavat tiedot tallennetaan tietokantaan. Näitä ovat käyttäjältä kysyttävä kysymys, paikkamerkki, mahdolliset täyttöohjeet ja asiakirjapohjan nimi.
 
 Laajentamismahdollisuudet:
 
