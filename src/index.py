@@ -10,10 +10,9 @@ def main():
     document = Document("viranhaltijapäätös_määräalan_myynti_pohja.docx")
     document_handler = DocumentHandler()
 
-    replaced = re.compile("kiinteistö_id")
-    replace = real_estate_id
-    document_handler.docx_replace_regex(document, replaced, replace)
-    document.save("viranhaltijapäätös_määräalan_myynti.docx")
+    to_be_replaced_list = ["[kiinteistötunnus]"]
+    replace_list = [real_estate_id]
+    document_handler.replace_words(document, to_be_replaced_list, replace_list)
 
     print("Uusi asiakirja luotu")
 
