@@ -15,11 +15,15 @@ Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekem�
 
 ## Asennus
 
+### Ohjelman asentaminen
+
 Asenna riippuvuudet komennolla:
 
 ```bash
 poetry install
 ```
+
+### Ohjelman käynnistäminen
 
 Käynnistä sovellus komennolla:
 
@@ -56,7 +60,9 @@ poetry run invoke coverage-report
 Raportti generoituu htmlcov-hakemistoon.
 
 
-## Sovelluksen tila 13.4.2021 ja seuraavat askeleet
+## Sovelluksen tila 
+
+### Status 13.4.2021 ja seuraavat askeleet
 
 Sovellukseen on nyt tehty toiminnallisuus kiinteistötunnuksen lisäämiseksi paikkatiedon "[kiinteistötunnus]" kohdalle viranhaltijapäätöspohjassa. Tältä pohjalta sovellusta on hyvä laajentaa.
 
