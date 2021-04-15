@@ -6,6 +6,13 @@ Sovelluksen tarkoituksena on nopeuttaa Kaupunkiympäristön toimialan viranhalti
 Antamalla sovellukselle oikeat tiedot (mm. osapuolet, kiinteistötunnukset yms.), sovellus osaa luoda word-muotoisten täyttämättömien asiakirjapohjien perusteella word-muotoiset täytetyt asiakirjapohjat viranhaltijapäätöksistä ja kauppakirjoista. 
 Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekemällä pohjien täyttämisestä nopeampaa ja vähentämällä turhaa työtä.
 
+
+## Dokumentaatio
+
+[Määrittelydokumentti](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/maarittely.md)
+
+[Työaikakirjanpito](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
 ## Asennus
 
 Asenna riippuvuudet komennolla:
@@ -24,7 +31,7 @@ poetry run invoke start
 
 ### Ohjelman suorittaminen
 
-Ohjelman pystyy suorittamaan komennolla:
+Ohjelma suoritetaan komennolla:
 
 ```bash
 poetry run invoke start
@@ -40,13 +47,14 @@ poetry run invoke test
 
 ### Testikattavuus
 
-Testikattavuusraportin voi generoida komennolla:
+Testikattavuusraportin saa komennolla:
 
 ```bash
 poetry run invoke coverage-report
 ```
 
 Raportti generoituu htmlcov-hakemistoon.
+
 
 ## Sovelluksen tila 13.4.2021 ja seuraavat askeleet
 
