@@ -7,11 +7,17 @@ Antamalla sovellukselle oikeat tiedot (mm. osapuolet, kiinteistötunnukset yms.)
 Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekemällä pohjien täyttämisestä nopeampaa ja vähentämällä turhaa työtä.
 
 
+## Lähteet
+
+Sovelluksen teossa on käytetty apuna materiaalia osoitteista https://ohjelmistotekniikka-hy.github.io/ ja https://github.com/ohjelmistotekniikka-hy/python-todo-app.
+
+
 ## Dokumentaatio
 
 [Määrittelydokumentti](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/maarittely.md)
 
 [Tuntikirjanpito](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
 
 ## Asennus
 
@@ -26,6 +32,7 @@ Asenna tarvittavat riippuvuude poetryn kautta komennolla:
 Käynnistä sovellus komennolla:
 
 *poetry run invoke start*
+
 
 ## Komennot
 
