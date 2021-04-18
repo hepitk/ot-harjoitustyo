@@ -5,7 +5,7 @@ def drop_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        drop table if exists placeholders;
+        drop table if exists replace_data;
     ''')
 
     connection.commit()
@@ -14,12 +14,11 @@ def create_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        create table placeholders (
+        create table replace_data (
             id integer primary key,
             document_name text,
             user_question text,
             placeholder text,
-            replace_word text,
             instruction text
         );
     ''')
