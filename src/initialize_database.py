@@ -5,27 +5,26 @@ def drop_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        drop table if exists document;
+        drop table if exists placeholders;
     ''')
 
     connection.commit()
-
 
 def create_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        create table document (
+        create table placeholders (
             id integer primary key,
             document_name text,
-            output text,
+            user_question text,
             placeholder text,
-            instructions text
+            replace_word text,
+            instruction text
         );
     ''')
 
     connection.commit()
-
 
 def initialize_database():
     connection = get_database_connection()

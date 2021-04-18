@@ -1,5 +1,5 @@
 import re
-from documenthandler import DocumentHandler
+from document_handler import DocumentHandler
 from docx import Document
 from initialize_database import initialize_database
 
