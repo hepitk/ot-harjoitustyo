@@ -11,53 +11,43 @@ Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekem�
 
 [Määrittelydokumentti](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/maarittely.md)
 
-[Työaikakirjanpito](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Tuntikirjanpito](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Asennus
 
-### Ohjelman asentaminen
+### Sovelluksen asentaminen
 
-Asenna riippuvuudet komennolla:
+Asenna tarvittavat riippuvuude poetryn kautta komennolla:
 
-```bash
-poetry install
-```
+*poetry install*
 
-### Ohjelman käynnistäminen
+### Sovelluksen käynnistäminen
 
 Käynnistä sovellus komennolla:
 
-```bash
-poetry run invoke start
-```
+*poetry run invoke start*
 
-## Komentorivi
+## Komennot
 
-### Ohjelman suorittaminen
+### Sovelluksen suorittaminen
 
-Ohjelma suoritetaan komennolla:
+Sovellus suoritetaan komennolla:
 
-```bash
-poetry run invoke start
-```
+*poetry run invoke start*
 
 ### Testaus
 
-Testit suoritetaan komennolla:
+Sovlluksen testit suoritetaan komennolla:
 
-```bash
-poetry run invoke test
-```
+*poetry run invoke test*
 
 ### Testikattavuus
 
 Testikattavuusraportin saa komennolla:
 
-```bash
-poetry run invoke coverage-report
-```
+*poetry run invoke coverage-report*
 
-Raportti generoituu htmlcov-hakemistoon.
+Raportti muodostetaan htmlcov-hakemistoon.
 
 
 ## Sovelluksen tila 
