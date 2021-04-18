@@ -5,7 +5,6 @@ from database_handler import database_handler
 from document_handler import document_handler
 
 
-
 def main():
     initialize_database()
     replace_words_list = []    
@@ -20,7 +19,7 @@ def main():
     replace_data = ReplaceData(filename, user_question, placeholder, instruction)
     database_handler.create(replace_data)
 
-    filename = "viranhaltijapäätös_määräalan_myynti_pohja"
+    #filename = "viranhaltijapäätös_määräalan_myynti_pohja"
     user_question = "Syötä ostaja"
     placeholder = "[ostaja]"
     replace_words_list.append(input(user_question + "\n"))
