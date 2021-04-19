@@ -31,12 +31,12 @@ def main():
     document_entries = database_handler.find_document_entries(filename)
     
     calculator = 0
-    for d in document_entries:        
-        document_handler.replace_words(document, d, replace_words_list[calculator])
+    for d in document_entries:     
+        print("Paikkamerkintä " + document_entries[calculator].placeholder + " korvattu" + " sanalla " + replace_words_list[calculator] + " " + str(document_handler.replace_words(document, d, replace_words_list[calculator])) + " kertaa.")
         calculator += 1
     print("\n" + "Uusi asiakirja luotu!")
     
-    print("\n" + "Asiakirjan pohjaan lisätyt paikkatietomerkinnät:")
+    print("\n" + "Asiakirjapojalle lisätyt paikkamerkinnät:")
     for i in document_entries:
        print(i.placeholder)
 
