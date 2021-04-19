@@ -15,10 +15,10 @@ class TestDocumentHandler(unittest.TestCase):
         self.replace_data = ReplaceData(self.filename, self.user_question, self.placeholder, self.instruction)
     
     def test_replace_word_works(self):
-        document_handler.replace_words(self.document, self.replace_data, self.replace_word)
+        replace_amount = document_handler.replace_words(self.document, self.replace_data, self.replace_word)
         self.document_filled = Document("testi.docx")
         for p in self.document_filled.paragraphs:            
-            if self.replace_word in p.text:
+            if self.replace_word in p.text and replace_amount == 3:
                 self.assertEqual(p.text, p.text)
                 return True
         self.assertEqual("False", "True")
