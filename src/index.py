@@ -9,7 +9,7 @@ def main():
     initialize_database()
     replace_words_list = []    
 
-    filename = "viranhaltijapäätös_määräalan_myynti_pohja"
+    filename = "asiakirjapohjat/viranhaltijapäätös_määräalan_myynti_pohja"
     document = Document(filename + ".docx")
     user_question = "Syötä kiinteistötunnus:"
     placeholder = "[kiinteistötunnus]"
@@ -19,8 +19,8 @@ def main():
     replace_data = ReplaceData(filename, user_question, placeholder, instruction)
     database_handler.create(replace_data)
 
-    #filename = "viranhaltijapäätös_määräalan_myynti_pohja"
-    user_question = "Syötä ostaja"
+    #filename = "asiakirjapohjat/viranhaltijapäätös_määräalan_myynti_pohja"
+    user_question = "Syötä ostaja:"
     placeholder = "[ostaja]"
     replace_words_list.append(input(user_question + "\n"))
     print(f"Syötit ostajan: {replace_words_list[1]}")
@@ -32,7 +32,7 @@ def main():
     
     calculator = 0
     for d in document_entries:     
-        print("Paikkamerkintä " + document_entries[calculator].placeholder + " korvattu" + " sanalla " + replace_words_list[calculator] + " " + str(document_handler.replace_words(document, d, replace_words_list[calculator])) + " kertaa.")
+        print("\n" + "Paikkamerkintä " + document_entries[calculator].placeholder + " korvattu" + " sanalla " + replace_words_list[calculator] + " " + "(" + str(document_handler.replace_words(document, d, replace_words_list[calculator])) + " kpl)")
         calculator += 1
     print("\n" + "Uusi asiakirja luotu!")
     

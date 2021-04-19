@@ -18,7 +18,7 @@ class DocumentHandler:
             if placeholder in p.text:
                 replace_amount += 1
                 p.text = p.text.replace(placeholder, replace_word)
-        document.save("testi.docx")
+        document.save("valmiit asiakirjat/testi.docx")
         return replace_amount
 
 document_handler = DocumentHandler()
