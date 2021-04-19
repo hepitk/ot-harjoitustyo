@@ -6,3 +6,4 @@
 | 12.4. | 6    | harjoitustyön runkoa, replace_words-metodin säätäminen |
 | 13.4. | 6    | harjoitustyön runkoa, replace_words-metodin säätäminen |
 | 18.4. | 7    | sovelluksen rungon päivitys, tietokantayhteys ja perusoperaatiot, document_handler testi |
+| 19.4. | 2    | document_handler-luokan ja siihen liittyvän testin muutos |
