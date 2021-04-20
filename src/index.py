@@ -1,8 +1,8 @@
 from docx import Document
 from initialize_database import initialize_database
-from replace_data import ReplaceData
-from database_handler import database_handler
-from document_handler import document_handler
+from entities.replace_data import ReplaceData
+from repositories.database_handler import database_handler
+from services.document_handler import document_handler
 
 
 def main():

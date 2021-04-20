@@ -1,6 +1,6 @@
 # Class that takes care of database operations
 from database_connection import get_database_connection
-from replace_data import ReplaceData
+from entities.replace_data import ReplaceData
 
 
 def get_replace_data_by_row(row):
