@@ -1,49 +1,10 @@
-from docx import Document
 from initialize_database import initialize_database
-from entities.replace_data import ReplaceData
-from repositories.database_handler import database_handler
-from services.document_handler import document_handler
+from services.program_service import program_service
 
 
 def main():
     initialize_database()
-    replace_words_list = []
-
-    filename = "asiakirjapohjat/viranhaltijapäätös_määräalan_myynti_pohja"
-    document = Document(filename + ".docx")
-    user_question = "Syötä kiinteistötunnus:"
-    placeholder = "[kiinteistötunnus]"
-    replace_words_list.append(input(user_question + "\n"))
-    print(f"Syötit kiinteistötunnuksen: {replace_words_list[0]}")
-    instruction = ""
-    replace_data = ReplaceData(
-        filename, user_question, placeholder, instruction)
-    database_handler.create(replace_data)
-
-    #filename = "asiakirjapohjat/viranhaltijapäätös_määräalan_myynti_pohja"
-    user_question = "Syötä ostaja:"
-    placeholder = "[ostaja]"
-    replace_words_list.append(input(user_question + "\n"))
-    print(f"Syötit ostajan: {replace_words_list[1]}")
-    instruction = ""
-    replace_data = ReplaceData(
-        filename, user_question, placeholder, instruction)
-    database_handler.create(replace_data)
-
-    document_entries = database_handler.find_document_entries(filename)
-
-    calculator = 0
-    for replace_data in document_entries:
-        print("\n" + "Paikkamerkintä " + document_entries[calculator].placeholder + " korvattu" +
-              " sanalla " + replace_words_list[calculator] + " " + "(" + str(document_handler.
-              replace_words(document, replace_data, replace_words_list[calculator])) + " kpl)")
-
-        calculator += 1
-    print("\n" + "Uusi asiakirja luotu!")
-
-    print("\n" + "Asiakirjapojalle lisätyt paikkamerkinnät:")
-    for i in document_entries:
-        print(i.placeholder)
+    program_service.start()
 
 
 if __name__ == "__main__":
