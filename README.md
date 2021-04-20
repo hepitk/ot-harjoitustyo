@@ -18,6 +18,8 @@ Sovelluksen teossa on käytetty apuna materiaalia osoitteista https://ohjelmisto
 
 [Tuntikirjanpito](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
+[Arkkitehtuuri](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 
 ## Asennus
 
@@ -71,7 +73,7 @@ Koodin formatoinnin saa komennolla:
 
 ## Sovelluksen tila 
 
-### Status 13.4.2021 ja seuraavat askeleet
+### Status 13.4.2021
 
 Sovellukseen on nyt tehty toiminnallisuus kiinteistötunnuksen lisäämiseksi paikkatiedon "[kiinteistötunnus]" kohdalle viranhaltijapäätöspohjassa. Tältä pohjalta sovellusta on hyvä laajentaa.
 
@@ -79,3 +81,11 @@ Python-docx-kirjastossa ei löytynyt erillistä replace()-metodia, joten sellais
 Tällä hetkellä sovellus toimii, mutta se ei salli erilaisia tyylejä yhden kappaleen sisällä. Jos siis asiakirjapohjamallissa on saman kappaleen sisällä erilaisia fontteja tai muita muotoiluja, ne häviävät. Tähän en keksinyt toimivaa ratkaisua.
 
 Seuraavaksi toteutan tietokantayhteyden.
+
+### Status 20.4.2021
+
+Sovellukseen on tehty tietokantayhteys ja tietokantaoperaatioita. Perusrakennetta päivitetty. Pylint ja autopep otettu käyttöön.
+
+Tällä hetkellä sovelluksessa on kuitenkin vain testikäyttöliittymä, joka sekin suurimmaksi osaksi kovakoodattu.
+
+Seuraavaksi on toteutettava graafinen käyttöliittymä ja kunnollinen sovelluslogiikka.
