@@ -1,7 +1,5 @@
 # Class that takes care of reading and writing to documents
-from docx import Document
 from docx.shared import Pt
-from entities.replace_data import ReplaceData
 
 
 class DocumentHandler:
