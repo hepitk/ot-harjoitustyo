@@ -1,7 +1,7 @@
 import unittest
-from document_handler import document_handler
+from services.document_handler import document_handler
 from docx import Document
-from replace_data import ReplaceData
+from entities.replace_data import ReplaceData
 
 
 class TestDocumentHandler(unittest.TestCase):
