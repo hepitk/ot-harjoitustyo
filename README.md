@@ -56,6 +56,18 @@ Testikattavuusraportin saa komennolla:
 
 Raportti muodostetaan htmlcov-hakemistoon.
 
+### Laatutarkistus
+
+Koodin laatutarkistuksen saa komennolla:
+
+*poetry run invoke lint*
+
+### Formatointi
+
+Koodin formatoinnin saa komennolla:
+
+*poetry run invoke format*
+
 
 ## Sovelluksen tila 
 
