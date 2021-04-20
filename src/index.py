@@ -33,9 +33,11 @@ def main():
     document_entries = database_handler.find_document_entries(filename)
 
     calculator = 0
-    for d in document_entries:
-        print("\n" + "Paikkamerkintä " + document_entries[calculator].placeholder + " korvattu" + " sanalla " + replace_words_list[calculator] + " " + "(" + str(
-            document_handler.replace_words(document, d, replace_words_list[calculator])) + " kpl)")
+    for replace_data in document_entries:
+        print("\n" + "Paikkamerkintä " + document_entries[calculator].placeholder + " korvattu" +
+              " sanalla " + replace_words_list[calculator] + " " + "(" + str(document_handler.
+              replace_words(document, replace_data, replace_words_list[calculator])) + " kpl)")
+
         calculator += 1
     print("\n" + "Uusi asiakirja luotu!")
 

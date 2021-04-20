@@ -12,3 +12,4 @@ src/tests/__pycache__
 /htmlcov
 /valmiit asiakirjat
 data/database.sqlite
+/.vscode

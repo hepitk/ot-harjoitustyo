@@ -4,7 +4,8 @@ from replace_data import ReplaceData
 
 
 def get_replace_data_by_row(row):
-    return ReplaceData(row["document_name"], row["user_question"], row["placeholder"], row["instruction"],) if row else None
+    return ReplaceData(row["document_name"], row["user_question"], row["placeholder"],
+                       row["instruction"],) if row else None
 
 
 class DatabaseHandler:
@@ -15,7 +16,8 @@ class DatabaseHandler:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "insert into replace_data (document_name, user_question, placeholder, instruction) values (?, ?, ?, ?)",
+            "insert into replace_data (document_name, user_question,"
+            "placeholder, instruction) values (?, ?, ?, ?)",
             (replace_data.filename, replace_data.user_question,
              replace_data.placeholder, replace_data.instruction)
         )
@@ -28,7 +30,8 @@ class DatabaseHandler:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "select document_name, user_question, placeholder, instruction from replace_data where document_name = ?",
+            "select document_name, user_question, placeholder,"
+            "instruction from replace_data where document_name = ?",
             (filename,)
         )
 
