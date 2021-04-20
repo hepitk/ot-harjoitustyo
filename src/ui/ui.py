@@ -8,7 +8,6 @@ from services.document_handler import document_handler
 
 class UI:
     def ask_question(self, user_question):
-        print("täällä")
         answer = input(user_question + "\n")
         print(f"Syötit kiinteistötunnuksen: {answer}")
         return answer
