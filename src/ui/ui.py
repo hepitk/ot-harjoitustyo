@@ -7,8 +7,8 @@ from services.document_handler import document_handler
 
 
 class UI:
-    def ask_question(self, user_question):
-        answer = input(user_question + "\n")
+    def ask_question(self, user_input_data):
+        answer = input(user_input_data + "\n")
         print(f"Syötit kiinteistötunnuksen: {answer}")
         return answer
 

@@ -18,7 +18,7 @@ def create_tables(connection):
         create table replace_data (
             id integer primary key,
             document_name text,
-            user_question text,
+            user_input_data text,
             placeholder text,
             instruction text
         );

@@ -4,7 +4,7 @@ from entities.replace_data import ReplaceData
 
 
 def get_replace_data_by_row(row):
-    return ReplaceData(row["document_name"], row["user_question"], row["placeholder"],
+    return ReplaceData(row["document_name"], row["user_input_data"], row["placeholder"],
                        row["instruction"],) if row else None
 
 
@@ -16,9 +16,9 @@ class DatabaseHandler:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "insert into replace_data (document_name, user_question,"
+            "insert into replace_data (document_name, user_input_data,"
             "placeholder, instruction) values (?, ?, ?, ?)",
-            (replace_data.filename, replace_data.user_question,
+            (replace_data.filename, replace_data.user_input_data,
              replace_data.placeholder, replace_data.instruction)
         )
 
@@ -30,7 +30,7 @@ class DatabaseHandler:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "select document_name, user_question, placeholder,"
+            "select document_name, user_input_data, placeholder,"
             "instruction from replace_data where document_name = ?",
             (filename,)
         )
