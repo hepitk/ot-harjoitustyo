@@ -9,7 +9,7 @@ class TestDocumentHandler(unittest.TestCase):
         self.filename = "asiakirjapohjat/viranhaltijapäätös_määräalan_myynti_pohja"
         self.document = Document(self.filename + ".docx")
         self.document_filled = Document(
-            self.document.save("valmiit asiakirjat/testi.docx"))
+            self.document.save("valmiit asiakirjat/valmis.docx"))
         self.user_question = "Syötä kiinteistötunnus:"
         self.placeholder = "[kiinteistötunnus]"
         self.replace_word = "[kana]"

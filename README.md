@@ -101,4 +101,4 @@ valmis.docx.
 
 Tällä hetkellä sovellus täyttää määrittelydokumentin vaatimukset. Sovelluksen kehityksen aikana on ilmennyt, että osa määrittelydokumentin vaatimuksista on turhia.
 
-Sovelluksen ulkoasussa, käyttöliittymässä, koodissa ja toiminnallisuuksissa on vielä paljon parannettavaa.
+Sovelluksen ulkoasussa, käyttöliittymässä, koodissa ja toiminnallisuuksissa on vielä paljon parannettavaa. Käyttäjälle annettavat ohjeet eivät vielä näy missään.
