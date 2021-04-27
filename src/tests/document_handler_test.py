@@ -19,8 +19,8 @@ class TestDocumentHandler(unittest.TestCase):
 
     def test_replace_word_works(self):
         replace_amount = document_handler.replace_words(
-            self.document, self.replace_data, self.replace_word)
-        self.document_filled = Document("valmiit asiakirjat/testi.docx")
+            self.document, self.replace_word, self.placeholder)
+        self.document_filled = Document("valmiit asiakirjat/valmis.docx")
         for par in self.document_filled.paragraphs:
             if self.replace_word in par.text and replace_amount == 3:
                 self.assertEqual(par.text, par.text)
