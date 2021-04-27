@@ -1,9 +1,9 @@
-# Viranhaltijapäätösten ja kiinteistön kauppakirjojen luontisovellus
+# TÄTI – Täyttöbotti
 
 Tämä sovellus luodaan työnantajani Vantaan kaupungin viranhaltijapäätösten ja kiinteistön kauppakirjojen laadintaa varten. 
 Ongelmana organisaatiossa on, että samoja tietoja syötetään moneen kertaan monen eri henkilön toimesta viranhaltijapäätöspohjiin ja viranhaltijapäätösten pohjalta tehtäviin kiinteistön kauppakirjapohjiin.
 Sovelluksen tarkoituksena on nopeuttaa Kaupunkiympäristön toimialan viranhaltijapäätöksien ja kiinteistön kauppakirjojen laadintaa.
-Antamalla sovellukselle oikeat tiedot (mm. osapuolet, kiinteistötunnukset yms.), sovellus osaa luoda word-muotoisten täyttämättömien asiakirjapohjien perusteella word-muotoiset täytetyt asiakirjapohjat viranhaltijapäätöksistä ja kauppakirjoista. 
+Antamalla sovellukselle oikeat tiedot (mm. osapuolet, kiinteistötunnukset yms.), sovellus osaa luoda word-muotoisten täyttämättömien asiakirjapohjien perusteella word-muotoiset täytetyt asiakirjat mm. viranhaltijapäätöksistä ja kauppakirjoista. 
 Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekemällä pohjien täyttämisestä nopeampaa ja vähentämällä turhaa työtä.
 
 
@@ -89,3 +89,12 @@ Sovellukseen on tehty tietokantayhteys ja tietokantaoperaatioita. Perusrakennett
 Tällä hetkellä sovelluksessa on kuitenkin vain testikäyttöliittymä, joka sekin suurimmaksi osaksi kovakoodattu.
 
 Seuraavaksi on toteutettava graafinen käyttöliittymä ja kunnollinen sovelluslogiikka.
+
+### Status 27.4.2021
+
+Sovelluksessa on nyt alustava käyttöliittymä ja uusi sovelluslogiikka. Käyttäjä voi lisätä asiakirjapohjia hakemistoon "asiakirjapohjat". Alkunäkymässä käyttäjä voi valita täyttötietojen lisäämisen tai asiakirjapohjan täyttämisen. Täyttötietojen lisäämisessä asiakirjan nimi on annettava ilman .docx-päätettä ja täsmällisessä muodossa. Kun käyttäjä on lisännyt täyttötietoja, voi asiakirjapohjat täyttää niiden perusteella omassa näkymässään. Lopullinen asiakirja tulostuu hakemistoon "valmiit asiakirjat" nimellä 
+valmis.docx. 
+
+Tällä hetkellä sovellus täyttää määrittelydokumentin vaatimukset. Sovelluksen kehityksen aikana on ilmennyt, että osa määrittelydokumentin vaatimuksista on turhia.
+
+Sovelluksen ulkoasussa, käyttöliittymässä, koodissa ja toiminnallisuuksissa on vielä paljon parannettavaa.
