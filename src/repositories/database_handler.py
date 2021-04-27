@@ -6,7 +6,7 @@ from entities.replace_data import ReplaceData
 def get_replace_data_by_row(row):
     return ReplaceData(row["document_name"], row["user_input_data"], row["placeholder"],
                        row["instruction"],) if row else None
-    
+
 def get_all_document_names_by_row(row):
     return str(row["document_name"],) if row else None
 
@@ -41,7 +41,7 @@ class DatabaseHandler:
         result = cursor.fetchall()
 
         return list(map(get_replace_data_by_row, result))
-    
+
     def find_all_document_names(self):
         cursor = self._connection.cursor()
 

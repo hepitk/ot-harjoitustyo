@@ -1,5 +1,5 @@
-from initialize_database import initialize_database
 from tkinter import Tk
+from initialize_database import initialize_database
 from ui.ui import UI
 
 

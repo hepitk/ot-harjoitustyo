@@ -1,5 +1,4 @@
 # Holds main program logic.
-from docx import Document
 from entities.replace_data import ReplaceData
 from repositories.database_handler import database_handler
 from services.document_handler import document_handler

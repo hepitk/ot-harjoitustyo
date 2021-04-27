@@ -3,9 +3,8 @@ from docx.shared import Pt
 
 
 class DocumentHandler:
-    
+
     def replace_words(self, document, user_input, placeholder):
-        placeholder = placeholder
         replace_amount = 0
 
         style = document.styles["Normal"]
