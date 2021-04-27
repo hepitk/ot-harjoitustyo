@@ -92,7 +92,7 @@ Seuraavaksi on toteutettava graafinen käyttöliittymä ja kunnollinen sovellusl
 
 ### Status 27.4.2021
 
-Sovelluksessa on nyt alustava käyttöliittymä ja uusi sovelluslogiikka. Käyttäjä voi lisätä asiakirjapohjia hakemistoon "asiakirjapohjat". Alkunäkymässä käyttäjä voi valita täyttötietojen lisäämisen tai asiakirjapohjan täyttämisen. Täyttötietojen lisäämisessä asiakirjan nimi on annettava ilman .docx-päätettä ja täsmällisessä muodossa. Kun käyttäjä on lisännyt täyttötietoja, voi asiakirjapohjat täyttää niiden perusteella omassa näkymässään. Lopullinen asiakirja tulostuu hakemistoon "valmiit asiakirjat" nimellä 
+Sovelluksessa on nyt alustava käyttöliittymä ja uusi sovelluslogiikka. Käyttäjä voi lisätä asiakirjapohjia hakemistoon "asiakirjapohjat". Alkunäkymässä käyttäjä voi valita täyttötietojen lisäämisen tai asiakirjapohjan täyttämisen. Täyttötietojen lisäämisessä asiakirjan nimi on annettava ilman .docx-päätettä ja täsmällisessä muodossa. Kun käyttäjä on lisännyt täyttötietoja, voi asiakirjapohjat täyttää niiden perusteella omassa näkymässään. Lopullinen asiakirja generoituu hakemistoon "valmiit asiakirjat" nimellä 
 valmis.docx. 
 
 Tällä hetkellä sovellus täyttää määrittelydokumentin vaatimukset. Sovelluksen kehityksen aikana on ilmennyt, että osa määrittelydokumentin vaatimuksista on turhia.
