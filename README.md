@@ -6,6 +6,10 @@ Sovelluksen tarkoituksena on nopeuttaa Kaupunkiympäristön toimialan viranhalti
 Antamalla sovellukselle oikeat tiedot (mm. osapuolet, kiinteistötunnukset yms.), sovellus osaa luoda word-muotoisten täyttämättömien asiakirjapohjien perusteella word-muotoiset täytetyt asiakirjat mm. viranhaltijapäätöksistä ja kauppakirjoista. 
 Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekemällä pohjien täyttämisestä nopeampaa ja vähentämällä turhaa työtä.
 
+## Release
+
+[Uusin release](https://github.com/hepitk/ot-harjoitustyo/releases/tag/viikko5)
+
 
 ## Lähteet
 
