@@ -10,6 +10,7 @@ class ProgramService:
         replace_data = ReplaceData(
             document_name, user_input_data, placeholder, instruction)
         database_handler.create(replace_data)
+        return replace_data
 
     def find_document_entries(self, filename):
         document_entries = database_handler.find_document_entries(filename)
