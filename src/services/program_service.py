@@ -1,44 +1,27 @@
 # Holds main program logic.
-# Now hard-coded for testing purposes. TODO: Complete rework of ProgramService and UI
 from docx import Document
 from entities.replace_data import ReplaceData
 from repositories.database_handler import database_handler
 from services.document_handler import document_handler
-from ui.ui import ui
 
 
 class ProgramService:
-    def start(self):
-        replacing_words_list = []
 
-        filename = "asiakirjapohjat/viranhaltijapäätös_määräalan_myynti_pohja"
-        document = Document(filename + ".docx")
-        user_input_data = "Syötä kiinteistötunnus:"
-        placeholder = "[kiinteistötunnus]"
-        replacing_words_list.append(ui.ask_question(user_input_data))
-        instruction = ""
+    def create_replace_data(self, document_name, user_input_data, placeholder, instruction):
         replace_data = ReplaceData(
-            filename, user_input_data, placeholder, instruction)
+            document_name, user_input_data, placeholder, instruction)
         database_handler.create(replace_data)
 
-        user_input_data = "Syötä ostaja:"
-        placeholder = "[ostaja]"
-        replacing_words_list.append(ui.ask_question(user_input_data))
-        instruction = ""
-        replace_data = ReplaceData(
-            filename, user_input_data, placeholder, instruction)
-        database_handler.create(replace_data)
-
+    def find_document_entries(self, filename):
         document_entries = database_handler.find_document_entries(filename)
+        return document_entries
 
-        calculator = 0
-        for replace_data in document_entries:
-            print("\n" + "Paikkamerkintä " + document_entries[calculator].placeholder + " korvattu" +
-                  " sanalla " + replacing_words_list[calculator] + " " + "(" + str(document_handler.
-                  replace_words(document, replace_data, replacing_words_list[calculator])) + " kpl)")
-            calculator += 1
+    def find_all_document_names(self):
+        document_names = database_handler.find_all_document_names()
+        return document_names
 
-        ui.create_document(document_entries)
+    def replace_words(self, document, user_input, placeholder):
+        document_handler.replace_words(document, user_input, placeholder)
 
 
 program_service = ProgramService()

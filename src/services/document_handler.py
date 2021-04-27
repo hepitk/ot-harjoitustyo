@@ -3,8 +3,9 @@ from docx.shared import Pt
 
 
 class DocumentHandler:
-    def replace_words(self, document, replace_data, replacing_word):
-        placeholder = replace_data.placeholder
+    
+    def replace_words(self, document, user_input, placeholder):
+        placeholder = placeholder
         replace_amount = 0
 
         style = document.styles["Normal"]
@@ -15,8 +16,8 @@ class DocumentHandler:
         for par in document.paragraphs:
             if placeholder in par.text:
                 replace_amount += 1
-                par.text = par.text.replace(placeholder, replacing_word)
-        document.save("valmiit asiakirjat/testi.docx")
+                par.text = par.text.replace(placeholder, user_input)
+        document.save("valmiit asiakirjat/valmis.docx")
         return replace_amount
 
 

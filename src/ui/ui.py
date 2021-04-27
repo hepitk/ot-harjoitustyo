@@ -1,23 +1,53 @@
-# Holds UI logic TODO: Complete rework
-from docx import Document
-from initialize_database import initialize_database
-from entities.replace_data import ReplaceData
-from repositories.database_handler import database_handler
-from services.document_handler import document_handler
-
+# Holds UI logic
+from tkinter import Tk, ttk
+from ui.main_view import MainView
+from ui.create_replace_data_view import CreateReplaceDataView
+from ui.create_document_view import CreateDocumentView
 
 class UI:
-    def ask_question(self, user_input_data):
-        answer = input(user_input_data + "\n")
-        print(f"Syötit kiinteistötunnuksen: {answer}")
-        return answer
+    def __init__(self, root):
+        self._root = root
+        self._current_view = None        
 
-    def create_document(self, document_entries):
-        print("\n" + "Uusi asiakirja luotu!")
+    def start(self):
+        self._show_main_view()
 
-        print("\n" + "Asiakirjapojalle lisätyt paikkamerkinnät:")
-        for i in document_entries:
-            print(i.placeholder)
+    def _hide_current_view(self):
+        if self._current_view:
+            self._current_view.destroy()
 
+        self._current_view = None
 
-ui = UI()
+    def _show_main_view(self):
+        self._hide_current_view()
+
+        self._current_view = MainView(
+            self._root,
+            self._show_create_replace_data_view,
+            self._show_create_document_view
+        )
+
+        self._current_view.pack()
+
+    def _show_create_replace_data_view(self):
+        self._hide_current_view()
+
+        self._current_view = CreateReplaceDataView(
+            self._root,
+            self._show_main_view,            
+        )
+
+        self._current_view.pack()
+
+    def _show_create_document_view(self):
+        document_name_variable = self._current_view._document_name_variable.get()
+
+        self._hide_current_view()
+
+        self._current_view = CreateDocumentView(
+            self._root,
+            self._show_main_view,
+            document_name_variable              
+        )
+
+        self._current_view.pack()

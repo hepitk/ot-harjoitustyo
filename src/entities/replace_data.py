@@ -5,7 +5,6 @@ from docx import Document
 class ReplaceData:
     def __init__(self, filename, user_input_data, placeholder, instruction):
         self.filename = filename
-        self.document = Document(filename + ".docx")
         self.user_input_data = user_input_data
         self.placeholder = placeholder
         self.instruction = instruction

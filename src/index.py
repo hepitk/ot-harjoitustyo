@@ -1,10 +1,17 @@
 from initialize_database import initialize_database
-from services.program_service import program_service
+from tkinter import Tk
+from ui.ui import UI
 
 
 def main():
     initialize_database()
-    program_service.start()
+    window = Tk()
+    window.title("TÄTI")
+
+    ui = UI(window)
+    ui.start()
+
+    window.mainloop()
 
 
 if __name__ == "__main__":
