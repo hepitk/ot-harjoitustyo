@@ -29,11 +29,10 @@ class CreateReplaceDataView:
             )
         print(f"Tieto luotu.")
 
-
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        heading_label = ttk.Label(master=self._frame, text="Lisää täyttötietoja järjestelmään")
+        heading_label = ttk.Label(master=self._frame, text="Lisää täyttötietoja", font="font=TkHeadingFont 16 bold")
         document_name_label = ttk.Label(master=self._frame, text="Asiakirjapohjan nimi:")
         self._document_name_entry = ttk.Entry(master=self._frame)
 
@@ -58,7 +57,7 @@ class CreateReplaceDataView:
             command=self._handle_show_main_view
             )
                 
-        heading_label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
+        heading_label.grid(columnspan=2, padx=5, pady=5)
         document_name_label.grid(padx=5, pady=5)
         self._document_name_entry.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         user_input_data_label.grid(padx=5, pady=5)
@@ -69,6 +68,8 @@ class CreateReplaceDataView:
         self._instruction_entry.grid(row=4, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         button.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
         button2.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._frame.grid_columnconfigure(1, weight=1, minsize=400)
+
 
 
 

@@ -1,4 +1,4 @@
-from tkinter import Tk, ttk, constants
+from tkinter import Tk, ttk, constants, Scrollbar
 from services.program_service import program_service
 from docx import Document
 
@@ -34,30 +34,34 @@ class CreateDocumentView:
     def _initialize(self):
         # if filename = "Lisää täyttötietoja" ERROR!
         document_entries = program_service.find_document_entries(self._filename)
+        #scroll_bar = ttk.Scrollbar(master=self._frame, orient="vertical")
         self._frame = ttk.Frame(master=self._root)
 
-        heading_label = ttk.Label(master=self._frame, text="Täytä asiakirjapohja")
-
+        heading_label = ttk.Label(master=self._frame, text="Täytä asiakirjapohja", font="font=TkHeadingFont 16 bold")
+        
         for entry in range(0, len(document_entries)):
-            self._gui_components.append(ttk.Label(master=self._frame, text=document_entries[entry].user_input_data))                        
-            self._gui_components.append(ttk.Label(master=self._frame, text=document_entries[entry].placeholder))
-            self._gui_components.append(ttk.Entry(master=self._frame))
+            self._gui_components.append(ttk.Label(master=self._frame, text=("Anna " + document_entries[entry].user_input_data) + ","))                        
+            self._gui_components.append(ttk.Label(master=self._frame, text=("joka korvaa paikkatiedon "+ document_entries[entry].placeholder) + ":"))
+            self._gui_components.append(ttk.Entry(master=self._frame, width=50))
             #gui_components.append(ttk.Label(master=self._frame, text=document_entries[entry].instruction))
 
         button = ttk.Button(
             master=self._frame,
             text="Täytä",
-            command=self._handle_button_click
+            command=self._handle_button_click,
+            width=50
             )
 
         button2 = ttk.Button(
             master=self._frame,
             text="Palaa alkuvalikkoon",
-            command=self._handle_show_main_view
+            command=self._handle_show_main_view,
+            width=50
             )
 
-        heading_label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)        
+        heading_label.grid(columnspan=2, padx=5, pady=5)
+        #scroll_bar.grid(row=0, column=2)
         for entry in range(0, len(self._gui_components)):
-            self._gui_components[entry].grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
+            self._gui_components[entry].grid(columnspan=2, sticky=(constants.W,constants.E), padx=5, pady=5)
         button.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
         button2.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)

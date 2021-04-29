@@ -28,17 +28,19 @@ class MainView:
         self._document_name_variable = StringVar(self._frame)
         self._document_name_variable.set(document_names[0])
 
-        heading_label = ttk.Label(master=self._frame, text="LISÄÄ TÄYTTÖTIETOJA")
-        button = ttk.Button(master=self._frame, text="Lisää", command=self._handle_show_create_replace_data_view)
+        program_heading_label = ttk.Label(master=self._frame, text="TÄTI – Täyttöbotti", font="TkHeadingFont 20 bold italic")
+        heading_label = ttk.Label(master=self._frame, text="Lisää täyttötietoja", font="TkHeadingFont 16 bold")
+        button = ttk.Button(master=self._frame, text="Lisää", command=self._handle_show_create_replace_data_view, width=50)
 
-        heading_label2 = ttk.Label(master=self._frame, text="TÄYTÄ ASIAKIRJAPOHJA")
+        heading_label2 = ttk.Label(master=self._frame, text="Täytä asiakirjapohja", font="TkHeadingFont 14 bold")
         heading_label3 = ttk.Label(master=self._frame, text="Asiakirjapohjan nimi:")
         document_name_entry = OptionMenu(self._frame, self._document_name_variable, *document_names)
-        button2 = ttk.Button(master=self._frame, text="Valitse asiakirjapohja", command=self._handle_show_create_document_view)
-
-        heading_label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
-        button.grid(sticky=constants.W, padx=5, pady=5)
+        button2 = ttk.Button(master=self._frame, text="Valitse asiakirjapohja", command=self._handle_show_create_document_view, width=50)
+        
+        program_heading_label.grid(columnspan=2, padx=5, pady=10)
+        heading_label.grid(columnspan=2, sticky=(constants.W, constants.E), padx=5, pady=5)
+        button.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
         heading_label2.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
         heading_label3.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)       
         document_name_entry.grid(sticky=constants.W, padx=5, pady=5)
-        button2.grid(sticky=constants.W, padx=5, pady=5)
+        button2.grid(columnspan=2, sticky=(constants.W, constants.E), padx=5, pady=5)
