@@ -10,4 +10,5 @@
 | 20.4. | 5    | pylint ja autopep otettu käyttöön, tehty luokkakaavio, formatoitu ja paranneltu koodia |
 | 26.4. | 8    | käyttöliittymän ja uuden sovelluslogiikan toteutus |
 | 27.4. | 8    | käyttöliittymän ja uuden sovelluslogiikan toteutus |
-| YHT.  | 44   | 
+| 29.4. | 2    | ulkoasu päivitetty |
+| YHT.  | 46   | 
