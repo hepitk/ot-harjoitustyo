@@ -13,9 +13,8 @@ class TestDocumentHandler(unittest.TestCase):
         self.user_question = "Syötä kiinteistötunnus:"
         self.placeholder = "[kiinteistötunnus]"
         self.replace_word = "[kana]"
-        self.instruction = ""
         self.replace_data = ReplaceData(
-            self.filename, self.user_question, self.placeholder, self.instruction)
+            self.filename, self.user_question, self.placeholder)
 
     def test_replace_word_works(self):
         replace_amount = document_handler.replace_words(

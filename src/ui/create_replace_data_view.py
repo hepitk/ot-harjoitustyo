@@ -9,7 +9,6 @@ class CreateReplaceDataView:
         self._document_name_entry = None
         self._user_input_data_entry = None
         self._placeholder_entry = None
-        self._instruction_entry = None
         self._frame = None
 
         self._initialize()
@@ -24,8 +23,7 @@ class CreateReplaceDataView:
         program_service.create_replace_data(
             self._document_name_entry.get(),
             self._user_input_data_entry.get(),
-            self._placeholder_entry.get(),
-            self._instruction_entry.get()
+            self._placeholder_entry.get()
             )
         print(f"Tieto luotu.")
 
@@ -33,6 +31,7 @@ class CreateReplaceDataView:
         self._frame = ttk.Frame(master=self._root)
 
         heading_label = ttk.Label(master=self._frame, text="Lisää täyttötietoja", font="font=TkHeadingFont 16 bold")
+
         document_name_label = ttk.Label(master=self._frame, text="Asiakirjapohjan nimi:")
         self._document_name_entry = ttk.Entry(master=self._frame)
 
@@ -41,9 +40,6 @@ class CreateReplaceDataView:
 
         placeholder_label = ttk.Label(master=self._frame, text="Paikkatietomerkintä:")
         self._placeholder_entry = ttk.Entry(master=self._frame)
-
-        instruction_label = ttk.Label(master=self._frame, text="Ohje käyttäjälle:")
-        self._instruction_entry = ttk.Entry(master=self._frame)
 
         button = ttk.Button(
             master=self._frame,
@@ -64,8 +60,6 @@ class CreateReplaceDataView:
         self._user_input_data_entry.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         placeholder_label.grid(padx=5, pady=5)
         self._placeholder_entry.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
-        instruction_label.grid(padx=5, pady=5)
-        self._instruction_entry.grid(row=4, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         button.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
         button2.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
         self._frame.grid_columnconfigure(1, weight=1, minsize=400)

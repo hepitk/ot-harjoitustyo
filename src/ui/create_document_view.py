@@ -40,10 +40,9 @@ class CreateDocumentView:
         heading_label = ttk.Label(master=self._frame, text="Täytä asiakirjapohja", font="font=TkHeadingFont 16 bold")
         
         for entry in range(0, len(document_entries)):
-            self._gui_components.append(ttk.Label(master=self._frame, text=("Anna " + document_entries[entry].user_input_data) + ","))                        
-            self._gui_components.append(ttk.Label(master=self._frame, text=("joka korvaa paikkatiedon "+ document_entries[entry].placeholder) + ":"))
+            self._gui_components.append(ttk.Label(master=self._frame, text=(document_entries[entry].user_input_data) + ", korvaa paikkatiedon:"))                        
+            self._gui_components.append(ttk.Label(master=self._frame, text=(document_entries[entry].placeholder)))
             self._gui_components.append(ttk.Entry(master=self._frame, width=50))
-            #gui_components.append(ttk.Label(master=self._frame, text=document_entries[entry].instruction))
 
         button = ttk.Button(
             master=self._frame,

@@ -6,6 +6,8 @@ class DocumentHandler:
 
     def replace_words(self, document, user_input, placeholder):
         replace_amount = 0
+        print(user_input)
+        print(placeholder)
 
         style = document.styles["Normal"]
         font = style.font

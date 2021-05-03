@@ -6,9 +6,9 @@ from services.document_handler import document_handler
 
 class ProgramService:
 
-    def create_replace_data(self, document_name, user_input_data, placeholder, instruction):
+    def create_replace_data(self, document_name, user_input_data, placeholder):
         replace_data = ReplaceData(
-            document_name, user_input_data, placeholder, instruction)
+            document_name, user_input_data, placeholder)
         database_handler.create(replace_data)
         return replace_data
 
