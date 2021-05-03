@@ -20,13 +20,16 @@ class CreateReplaceDataView:
         self._frame.destroy()
 
     def _handle_button_click(self):
-        program_service.create_replace_data(
-            self._document_name_entry.get(),
-            self._user_input_data_entry.get(),
-            self._placeholder_entry.get()
-            )
-        print(f"Tieto luotu.")
-
+        if self._document_name_entry.get() != "" and self._user_input_data_entry.get() != "" and self._placeholder_entry.get() != "":
+            program_service.create_replace_data(
+                self._document_name_entry.get(),
+                self._user_input_data_entry.get(),
+                self._placeholder_entry.get()
+                )
+            print ("Tieto luotu.", flush=True)
+        else:
+            print ("Mikään kenttä ei saa olla tyhjä!", flush=True)    
+        
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 

@@ -29,10 +29,9 @@ class CreateDocumentView:
             placeholder.append(entry.cget("text"))        
         for entry in range(0, len(user_input)):
             program_service.replace_words (document, user_input[entry], placeholder[entry])        
-        print(f"Täyttö tehty ja valmis.docx asiakirja luotu.")
+        print("Täyttö tehty ja valmis.docx asiakirja luotu.", flush=True)
 
     def _initialize(self):
-        # if filename = "Lisää täyttötietoja" ERROR!
         document_entries = program_service.find_document_entries(self._filename)
         #scroll_bar = ttk.Scrollbar(master=self._frame, orient="vertical")
         self._frame = ttk.Frame(master=self._root)
@@ -62,5 +61,6 @@ class CreateDocumentView:
         #scroll_bar.grid(row=0, column=2)
         for entry in range(0, len(self._gui_components)):
             self._gui_components[entry].grid(columnspan=2, sticky=(constants.W,constants.E), padx=5, pady=5)
-        button.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
+        if (self._filename != "Lisää ensin täyttötietoja"):
+            button.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
         button2.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
