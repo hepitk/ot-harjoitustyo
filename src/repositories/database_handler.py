@@ -54,5 +54,21 @@ class DatabaseHandler:
 
         return list(map(get_all_document_names_by_row, result))
 
+    def document_exists(self, filename):
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            "select distinct document_name from replace_data where document_name = ?",
+            (filename,)
+        )
+
+        result = cursor.fetchall()
+
+        if result != None:
+            return False
+        return True
+
+        
+
 
 database_handler = DatabaseHandler(get_database_connection())

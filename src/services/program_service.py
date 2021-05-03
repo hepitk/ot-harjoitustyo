@@ -22,6 +22,11 @@ class ProgramService:
 
     def replace_words(self, document, user_input, placeholder):
         document_handler.replace_words(document, user_input, placeholder)
+    
+    def document_exists(self, filename):
+        if database_handler.document_exists(filename):
+            return True
+        return False
 
 
 program_service = ProgramService()

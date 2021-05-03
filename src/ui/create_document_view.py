@@ -20,16 +20,19 @@ class CreateDocumentView:
         self._frame.destroy()
     
     def _handle_button_click(self):
-        document = Document("asiakirjapohjat/" + self._filename + ".docx")
-        user_input = []
-        placeholder = []
-        for entry in self._gui_components[2::3]:
-            user_input.append(entry.get())        
-        for entry in self._gui_components[1::3]:
-            placeholder.append(entry.cget("text"))        
-        for entry in range(0, len(user_input)):
-            program_service.replace_words (document, user_input[entry], placeholder[entry])        
-        print("Täyttö tehty ja valmis.docx asiakirja luotu.", flush=True)
+        if program_service.document_exists(self._filename):
+            document = Document("asiakirjapohjat/" + self._filename + ".docx")
+            user_input = []
+            placeholder = []
+            for entry in self._gui_components[2::3]:
+                user_input.append(entry.get())        
+            for entry in self._gui_components[1::3]:
+                placeholder.append(entry.cget("text"))        
+            for entry in range(0, len(user_input)):
+                program_service.replace_words (document, user_input[entry], placeholder[entry])        
+            print("Täyttö tehty ja valmis.docx asiakirja luotu.", flush=True)
+        else:
+            print("Asiakirjapohjaa ei löydy kansiosta. Lisää asiakirjapohja nimeltä " + self._filename + ".docx kansioon /asiakirjapohjat.", flush=True)
 
     def _initialize(self):
         document_entries = program_service.find_document_entries(self._filename)
