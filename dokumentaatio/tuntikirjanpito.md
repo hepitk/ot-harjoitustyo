@@ -11,4 +11,5 @@
 | 26.4. | 8    | käyttöliittymän ja uuden sovelluslogiikan toteutus |
 | 27.4. | 8    | käyttöliittymän ja uuden sovelluslogiikan toteutus |
 | 29.4. | 2    | ulkoasu päivitetty |
-| YHT.  | 46   | 
+| 3.5.  | 3    | poistettu ohjeiden lisäämismahdollisuus turhana, lisätty virheilmoituksia käyttäjän syötteistä |
+| YHT.  | 49   | 
