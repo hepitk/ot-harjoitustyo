@@ -70,18 +70,18 @@ class ProgramService:
             return True
         return False
 
-    def duplicate_exists(self, filename, user_input_data, placeholder):
-        """Tarkistaa, löytyykö tietty täyttötieto järjestelmästä.
+    def placeholder_duplicate_exists(self, filename, placeholder):
+        """Tarkistaa, löytyykö tietty paikkatieto järjestelmästä.
 
         Args:
             filename: Merkkijono, joka kuvaa asiakirjapohjan nimeä ilman .docx-päätettä.
-            user_input_data: Merkkijono, joka kuvaa korvattavan tiedon tyyppiä.
+            user_input_data: Merkkijono, joka kuvaa korvattavan tiedon tyyppiä. (Tässä turha, mutta on mukana ReplaceData-oliossa ja tietokantaoperaatiossa)
             placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
         Returns:
-            Palauttaa True, jos täyttötieto löytyy järjestelmästä; False, jos täyttötietoa ei löydy.
+            Palauttaa True, jos paikkatieto löytyy järjestelmästä; False, jos paikkatietoa ei löydy.
         """
-
-        if database_handler.find_one_entry(filename, user_input_data, placeholder) != None:
+        
+        if database_handler.find_filename_placeholder_pair(filename, placeholder):
             return True
         return False
 

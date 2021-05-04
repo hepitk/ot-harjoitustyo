@@ -69,19 +69,19 @@ class DatabaseHandler:
             return False
         return True
 
-    def find_one_entry (self, filename, user_input_data, placeholder):
+    def find_filename_placeholder_pair (self, filename, placeholder):
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "select document_name, user_input_data, placeholder from replace_data where document_name = ? AND user_input_data = ? AND placeholder = ?",
-            (filename, user_input_data, placeholder,)
+            "select document_name, placeholder from replace_data where document_name = ? AND placeholder = ?",
+            (filename, placeholder,)
         )
 
         result = cursor.fetchone()
         
         if result == None:
-            return None
-        return map(get_replace_data_by_row, result)
+            return False
+        return True
 
         
 database_handler = DatabaseHandler(get_database_connection())
