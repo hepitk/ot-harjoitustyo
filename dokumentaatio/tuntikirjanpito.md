@@ -12,4 +12,5 @@
 | 27.4. | 8    | käyttöliittymän ja uuden sovelluslogiikan toteutus |
 | 29.4. | 2    | ulkoasu päivitetty |
 | 3.5.  | 3    | poistettu ohjeiden lisäämismahdollisuus turhana, lisätty virheilmoituksia käyttäjän syötteistä |
-| YHT.  | 49   | 
+| 4.5.  | 8    | lisätty virheilmoituksia, tehty uusia testejä, poistettu turhaa koodia, lisätty käyttöohje, päivitetty arkkitehtuuri.md |
+| YHT.  | 57   | 
