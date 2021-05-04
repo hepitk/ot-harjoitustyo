@@ -20,7 +20,6 @@ class CreateReplaceDataView:
         self._frame.destroy()
 
     def _handle_button_click(self):
-        print (program_service.duplicate_exists(self._document_name_entry.get(), self._user_input_data_entry.get(), self._placeholder_entry.get()), flush=True)
         if self._document_name_entry.get() != "" and self._user_input_data_entry.get() != "" and self._placeholder_entry.get() != "" and not program_service.duplicate_exists(self._document_name_entry.get(), self._user_input_data_entry.get(), self._placeholder_entry.get()):
             program_service.create_replace_data(
                 self._document_name_entry.get(),

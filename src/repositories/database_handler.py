@@ -1,4 +1,3 @@
-# Class that takes care of database operations
 from database_connection import get_database_connection
 from entities.replace_data import ReplaceData
 
@@ -15,6 +14,8 @@ def get_all_document_names_by_row(row):
 
 
 class DatabaseHandler:
+    """Tietokantaoperaatioista vastaava luokka."""
+
     def __init__(self, connection):
         self._connection = connection
 
@@ -64,7 +65,7 @@ class DatabaseHandler:
 
         result = cursor.fetchall()
 
-        if result != None:
+        if result == None:
             return False
         return True
 

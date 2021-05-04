@@ -3,11 +3,20 @@ from docx.shared import Pt
 
 
 class DocumentHandler:
+    """Luokka, joka vastaa asiakirjapohjien muokkaamisesta ja valmiiden asiakirjojen luomisesta."""
 
     def replace_words(self, document, user_input, placeholder):
+        """Korvaa paikkatiedon halutulla käyttäjän syötteellä, ja luo valmiin asiakirjan.
+
+        Args:
+            document: Muokattava asiakirjapohja docx-kirjaston Document-muodossa 
+            user_input: Merkkijono, joka kuvaa käyttäjän syötettä ja jolla halutaan korvata paikkatietomerkintä asiakirjapohjassa.
+            placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
+        Returns:
+            Palauttaa korvattujen sanojen lukumäärän.
+        """
+
         replace_amount = 0
-        print(user_input)
-        print(placeholder)
 
         style = document.styles["Normal"]
         font = style.font
