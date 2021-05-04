@@ -45,17 +45,17 @@ class ProgramService:
         return document_names
 
     def replace_words(self, document, user_input, placeholder):
-        """Korvaa paikkatiedon halutulla käyttäjän syötteellä DocumentHandler-luokkaa hyväksi käyttäen, ja luo valmiin asiakirjan.
+        """Korvaa paikkatiedon halutulla käyttäjän syötteellä DocumentHandler-luokkaa hyväksi käyttäen, ja luo valmiin asiakirjan /valmiit asiakirjat -kansioon.
 
         Args:
             document: Muokattava asiakirjapohja docx-kirjaston Document-muodossa 
             user_input: Merkkijono, joka kuvaa käyttäjän syötettä ja jolla halutaan korvata paikkatietomerkintä asiakirjapohjassa.
             placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
         Returns:
-            Ei palauta mitään, mutta luo valmiin asiakirjan /valmiit asiakirjat -kansioon.
+            Palauttaa korvattujen sanojen lukumäärän.
         """
 
-        document_handler.replace_words(document, user_input, placeholder)
+        return (document_handler.replace_words(document, user_input, placeholder))
 
     def document_exists(self, filename):
         """Tarkistaa, löytyykö tietty asiakirjapohja järjestelmästä.

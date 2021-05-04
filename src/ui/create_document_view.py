@@ -24,13 +24,14 @@ class CreateDocumentView:
             document = Document("asiakirjapohjat/" + self._filename + ".docx")
             user_input = []
             placeholder = []
+            replaced_words = 0
             for entry in self._gui_components[2::3]:
                 user_input.append(entry.get())        
             for entry in self._gui_components[1::3]:
                 placeholder.append(entry.cget("text"))        
             for entry in range(0, len(user_input)):
-                program_service.replace_words (document, user_input[entry], placeholder[entry])        
-            print("Täyttö tehty ja valmis.docx asiakirja luotu.", flush=True)
+                replaced_words += program_service.replace_words (document, user_input[entry], placeholder[entry])        
+            print("Täyttö tehty ja valmis.docx asiakirja luotu. " + str(replaced_words) + " paikkatietomerkintää korvattu.", flush=True)
         else:
             print("Asiakirjapohjaa ei löydy kansiosta. Lisää asiakirjapohja nimeltä " + self._filename + ".docx kansioon /asiakirjapohjat.", flush=True)
 
