@@ -27,6 +27,12 @@ class ProgramService:
         if database_handler.document_exists(filename):
             return True
         return False
+    
+    def duplicate_exists (self, filename, user_input_data, placeholder):
+        if database_handler.find_one_entry(filename, user_input_data, placeholder) != None:
+            return True
+        return False
+
 
 
 program_service = ProgramService()
