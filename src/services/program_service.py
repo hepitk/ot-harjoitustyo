@@ -1,13 +1,14 @@
 from entities.replace_data import ReplaceData
 from repositories.database_handler import database_handler
 from services.document_handler import document_handler
+from docx import Document
 
 
 class ProgramService:
     """Sovelluslogiikasta vastaava luokka."""
 
     def create_replace_data(self, document_name, user_input_data, placeholder):
-        """Luo uuden ReplaceData-olion, joka sisältää yhden täyttötiedon.
+        """Luo uuden ReplaceData-olion, joka sisältää yhden täyttötiedon. Lisää tiedon tietokantaan.
 
         Args:
             document_name: Merkkijono, joka kuvaa asiakirjapohjan nimeä ilman .docx-päätettä.
@@ -58,17 +59,18 @@ class ProgramService:
         return (document_handler.replace_words(document, user_input, placeholder))
 
     def document_exists(self, filename):
-        """Tarkistaa, löytyykö tietty asiakirjapohja järjestelmästä.
+        """Tarkistaa, löytyykö tietty asiakirjapohja kansiosta.
 
         Args:
             filename: Merkkijono, joka kuvaa asiakirjapohjan nimeä ilman .docx-päätettä.
         Returns:
-            Palauttaa True, jos asiakirja löytyy järjestelmästä; False, jos asiakirjaa ei löydy.
+            Palauttaa True, jos asiakirja löytyy kansiosta; False, jos asiakirjaa ei löydy.
         """
-
-        if database_handler.document_exists(filename):
-            return True
-        return False
+        try:
+            document = Document("asiakirjapohjat/" + filename + ".docx")
+        except:
+            return False
+        return True
 
     def placeholder_duplicate_exists(self, filename, placeholder):
         """Tarkistaa, löytyykö tietty paikkatieto järjestelmästä.

@@ -1,3 +1,3 @@
 [run]
-source = src,src/entities,src/repositories,src/services
+source = src
 omit = src/tests/**,src/ui/**,src/index.py
