@@ -9,7 +9,7 @@ class DocumentHandler:
         """Korvaa paikkatiedon halutulla käyttäjän syötteellä, ja luo valmiin asiakirjan.
 
         Args:
-            document: Muokattava asiakirjapohja docx-kirjaston Document-muodossa 
+            document: Muokattava asiakirjapohja docx-kirjaston Document-muodossa
             user_input: Merkkijono, joka kuvaa käyttäjän syötettä ja jolla halutaan korvata paikkatietomerkintä asiakirjapohjassa.
             placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
         Returns:

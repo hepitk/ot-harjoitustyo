@@ -8,7 +8,9 @@ Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekem�
 
 ## Release
 
-[Uusin release](https://github.com/hepitk/ot-harjoitustyo/releases/tag/viikko5)
+[Release 1](https://github.com/hepitk/ot-harjoitustyo/releases/tag/viikko5)
+
+[Release 2](https://github.com/hepitk/ot-harjoitustyo/releases/tag/viikko6)
 
 
 ## Lähteet
@@ -17,6 +19,8 @@ Sovelluksen teossa on käytetty apuna materiaalia osoitteista https://ohjelmisto
 
 
 ## Dokumentaatio
+
+[Käyttöohje](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/käyttöohje.md)
 
 [Määrittelydokumentti](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/maarittely.md)
 
@@ -29,15 +33,9 @@ Sovelluksen teossa on käytetty apuna materiaalia osoitteista https://ohjelmisto
 
 ### Sovelluksen asentaminen
 
-Asenna tarvittavat riippuvuude poetryn kautta komennolla:
+Tarvittavat riippuvuudet asennetaan poetryn kautta komennolla:
 
 *poetry install*
-
-### Sovelluksen käynnistäminen
-
-Käynnistä sovellus komennolla:
-
-*poetry run invoke start*
 
 
 ## Komennot
@@ -47,6 +45,10 @@ Käynnistä sovellus komennolla:
 Sovellus suoritetaan komennolla:
 
 *poetry run invoke start*
+
+Windows-ympäristössä käytetään komentoa:
+
+*poetry run invoke start-windows*
 
 ### Testaus
 
@@ -102,3 +104,9 @@ valmis.docx.
 Tällä hetkellä sovellus täyttää määrittelydokumentin vaatimukset. Sovelluksen kehityksen aikana on ilmennyt, että osa määrittelydokumentin vaatimuksista on turhia.
 
 Sovelluksen ulkoasussa, käyttöliittymässä, koodissa ja toiminnallisuuksissa on vielä paljon parannettavaa. Käyttäjälle annettavat ohjeet eivät vielä näy missään.
+
+### Status 4.5.2021
+
+Sovelluksen ulkoasua ja käytettävyyttä on paranneltu. Konsoliin tulostuu virheilmoituksia vääristä syötteistä. Käyttäjälle annettavista ohjeista luovuttu turhana, ne voi laittaa tietotyypin yhteyteen tarvittaessa.
+
+Sovellukseen olisi vielä tehtävä näkymä, jossa näkee kaikki lisätyt täyttötiedot. Samassa näkymässä on oltava toiminnallisuus, joka mahdollistaa täyttötietojen poistamisen. Virheilmoitukset olisi konsolin asemesta saatava ponnahdusikkunaan. Täytä asiakirjapohja -ikkunaan olisi saatava scrollausmahdollisuus. Käyttöohjeeseen olisi hyvä saada kuvia.

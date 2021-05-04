@@ -64,10 +64,10 @@ class DatabaseHandler:
         )
 
         result = cursor.fetchone()
-        
-        if result == None:
+
+        if result is None:
             return False
         return True
 
-        
+
 database_handler = DatabaseHandler(get_database_connection())

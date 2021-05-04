@@ -1,7 +1,7 @@
+from docx import Document
 from entities.replace_data import ReplaceData
 from repositories.database_handler import database_handler
 from services.document_handler import document_handler
-from docx import Document
 
 
 class ProgramService:
@@ -49,14 +49,14 @@ class ProgramService:
         """Korvaa paikkatiedon halutulla käyttäjän syötteellä DocumentHandler-luokkaa hyväksi käyttäen, ja luo valmiin asiakirjan /valmiit asiakirjat -kansioon.
 
         Args:
-            document: Muokattava asiakirjapohja docx-kirjaston Document-muodossa 
+            document: Muokattava asiakirjapohja docx-kirjaston Document-muodossa
             user_input: Merkkijono, joka kuvaa käyttäjän syötettä ja jolla halutaan korvata paikkatietomerkintä asiakirjapohjassa.
             placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
         Returns:
             Palauttaa korvattujen sanojen lukumäärän.
         """
 
-        return (document_handler.replace_words(document, user_input, placeholder))
+        return document_handler.replace_words(document, user_input, placeholder)
 
     def document_exists(self, filename):
         """Tarkistaa, löytyykö tietty asiakirjapohja kansiosta.
@@ -67,7 +67,7 @@ class ProgramService:
             Palauttaa True, jos asiakirja löytyy kansiosta; False, jos asiakirjaa ei löydy.
         """
         try:
-            document = Document("asiakirjapohjat/" + filename + ".docx")
+            Document("asiakirjapohjat/" + filename + ".docx")
         except:
             return False
         return True
@@ -82,7 +82,7 @@ class ProgramService:
         Returns:
             Palauttaa True, jos paikkatieto löytyy järjestelmästä; False, jos paikkatietoa ei löydy.
         """
-        
+
         if database_handler.find_filename_placeholder_pair(filename, placeholder):
             return True
         return False
