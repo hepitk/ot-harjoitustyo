@@ -13,4 +13,5 @@
 | 29.4. | 2    | ulkoasu päivitetty |
 | 3.5.  | 3    | poistettu ohjeiden lisäämismahdollisuus turhana, lisätty virheilmoituksia käyttäjän syötteistä |
 | 4.5.  | 8    | lisätty virheilmoituksia, tehty uusia testejä, poistettu turhaa koodia, lisätty käyttöohje, päivitetty arkkitehtuuri.md |
-| YHT.  | 57   | 
+| 10.5. | 3    | ohjelma toimii nyt Word-pohjien ylä- ja alatunnisteissa sekä tauluissa, lisätty scrollausmahdollisuus Täytä asiakirjapohja -ikkunaan  |
+| YHT.  | 60   | 
