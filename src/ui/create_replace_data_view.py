@@ -1,4 +1,4 @@
-from tkinter import Tk, ttk, constants
+from tkinter import Tk, ttk, constants, StringVar
 from services.program_service import program_service
 
 
@@ -10,6 +10,8 @@ class CreateReplaceDataView:
         self._user_input_data_entry = None
         self._placeholder_entry = None
         self._frame = None
+        self._message_variable = None
+        self._message_label = None
 
         self._initialize()
 
@@ -26,14 +28,24 @@ class CreateReplaceDataView:
                 self._user_input_data_entry.get(),
                 self._placeholder_entry.get()
                 )
-            print ("Tieto luotu.", flush=True)
+            self._show_message("Täyttötieto luotu")
         elif program_service.placeholder_duplicate_exists(self._document_name_entry.get(), self._placeholder_entry.get()):
-            print ("Samaa tietoa ei voi lisätä kahteen kertaan!", flush=True)
+            self._show_message("Samaa täyttötietoa ei voi lisätä kahteen kertaan!")
         else:
-            print ("Mikään kenttä ei saa olla tyhjä!", flush=True)    
+            self._show_message("Mikään kenttä ei saa olla tyhjä!")
+
+    def _show_message(self, message):
+        self._message_variable.set(message)
+        self._message_label.grid()
+
+    def _hide_message(self):
+        self._message_label.grid_remove()
         
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+
+        self._message_variable = StringVar(self._frame)
+        self._message_label = ttk.Label(master=self._frame, textvariable=self._message_variable, foreground="red")
 
         heading_label = ttk.Label(master=self._frame, text="Lisää täyttötietoja", font="font=TkHeadingFont 16 bold")
 
@@ -58,7 +70,7 @@ class CreateReplaceDataView:
             command=self._handle_show_main_view
             )
                 
-        heading_label.grid(columnspan=2, padx=5, pady=5)
+        heading_label.grid(columnspan=2, padx=5, pady=5, sticky=constants.W)
         document_name_label.grid(padx=5, pady=5)
         self._document_name_entry.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         user_input_data_label.grid(padx=5, pady=5)
@@ -67,6 +79,8 @@ class CreateReplaceDataView:
         self._placeholder_entry.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         button.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
         button2.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._message_label.grid(columnspan= 2, padx=5, pady=5, sticky=(constants.E, constants.W))
+        self._hide_message()
         self._frame.grid_columnconfigure(1, weight=1, minsize=400)
 
 
