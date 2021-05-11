@@ -8,6 +8,12 @@ def get_replace_data_by_row(row):
                        row["placeholder"],
                        ) if row else None
 
+def get_replace_data_by_row_with_id(row):
+    return ReplaceData(row["document_name"],
+                       row["user_input_data"],
+                       row["placeholder"],
+                       ) if row else None
+
 
 def get_all_document_names_by_row(row):
     return str(row["document_name"],) if row else None
@@ -68,6 +74,36 @@ class DatabaseHandler:
         if result is None:
             return False
         return True
+    
+    def find_all_replace_data_entries (self):
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            "select * from replace_data order by document_name"
+        )
+
+        result = cursor.fetchall()
+
+        return list(map(get_replace_data_by_row, result))
+
+    def delete_replace_data (self, filename, placeholder):
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            "delete from replace_data where document_name = ? AND placeholder = ?",
+            (filename, placeholder,)
+        )
+
+        cursor.execute(
+            "select document_name, placeholder from replace_data where document_name = ? AND placeholder = ?",
+            (filename, placeholder,)
+        )
+
+        result = cursor.fetchone()
+
+        if result is None:
+            return True
+        return False
 
 
 database_handler = DatabaseHandler(get_database_connection())

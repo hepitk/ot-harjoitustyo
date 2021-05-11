@@ -3,6 +3,7 @@ from tkinter import Tk, ttk
 from ui.main_view import MainView
 from ui.create_replace_data_view import CreateReplaceDataView
 from ui.create_document_view import CreateDocumentView
+from ui.delete_replace_data_view import DeleteReplaceDataView
 
 class UI:
     def __init__(self, root):
@@ -24,7 +25,8 @@ class UI:
         self._current_view = MainView(
             self._root,
             self._show_create_replace_data_view,
-            self._show_create_document_view
+            self._show_create_document_view,
+            self._show_delete_replace_data_view,
         )
 
         self._current_view.pack()
@@ -33,6 +35,16 @@ class UI:
         self._hide_current_view()
 
         self._current_view = CreateReplaceDataView(
+            self._root,
+            self._show_main_view,            
+        )
+
+        self._current_view.pack()
+
+    def _show_delete_replace_data_view(self):
+        self._hide_current_view()
+
+        self._current_view = DeleteReplaceDataView(
             self._root,
             self._show_main_view,            
         )

@@ -87,5 +87,28 @@ class ProgramService:
             return True
         return False
 
+    def find_all_replace_data_entries(self):
+        """Hakee kaikki järjestelmään lisätyt ReplaceData-oliot
+
+        Returns:
+            Palauttaa ReplaceData-oliot listana järjestettynä aakkosjärjestykseen.
+        """
+
+        return database_handler.find_all_replace_data_entries()
+
+    def delete_replace_data(self, filename, placeholder):
+        """Poistaa halutun ReplaceData-olion järjestelmästä.
+
+        Args:
+            filename: Merkkijono, joka kuvaa asiakirjapohjan nimeä ilman .docx-päätettä.
+            placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
+        Returns:
+            Palauttaa True, jos poisto onnistui; False, jos epäonnistui.
+        """
+
+        if database_handler.delete_replace_data(filename, placeholder):
+            return True
+        return False
+
 
 program_service = ProgramService()
