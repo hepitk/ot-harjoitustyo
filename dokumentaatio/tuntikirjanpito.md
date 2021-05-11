@@ -14,5 +14,5 @@
 | 3.5.  | 3    | poistettu ohjeiden lisäämismahdollisuus turhana, lisätty virheilmoituksia käyttäjän syötteistä |
 | 4.5.  | 8    | lisätty virheilmoituksia, tehty uusia testejä, poistettu turhaa koodia, lisätty käyttöohje, päivitetty arkkitehtuuri.md |
 | 10.5. | 3    | ohjelma toimii nyt Word-pohjien ylä- ja alatunnisteissa sekä tauluissa, lisätty scrollausmahdollisuus Täytä asiakirjapohja -ikkunaan  |
-| 10.5. | 3    | lisätty ilmoituksien näkyminen käyttäjälle, lisätty mahdollisuus poistaa täyttötietoja  |
+| 11.5. | 3    | lisätty ilmoituksien näkyminen käyttäjälle, lisätty mahdollisuus poistaa täyttötietoja  |
 | YHT.  | 63   | 
