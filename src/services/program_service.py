@@ -5,7 +5,7 @@ from services.document_handler import document_handler
 
 
 class ProgramService:
-    """Sovelluslogiikasta vastaava luokka."""
+    """Sovelluslogiikasta vastaava luokka. Muut luokat käyttävät tätä luokkaa operaatioihin."""
 
     def create_replace_data(self, document_name, user_input_data, placeholder):
         """Luo uuden ReplaceData-olion, joka sisältää yhden täyttötiedon. Lisää tiedon tietokantaan.
@@ -44,19 +44,6 @@ class ProgramService:
 
         document_names = database_handler.find_all_document_names()
         return document_names
-
-    def replace_words(self, document, user_input, placeholder):
-        """Korvaa paikkatiedon halutulla käyttäjän syötteellä DocumentHandler-luokkaa hyväksi käyttäen, ja luo valmiin asiakirjan /valmiit asiakirjat -kansioon.
-
-        Args:
-            document: Muokattava asiakirjapohja docx-kirjaston Document-muodossa
-            user_input: Merkkijono, joka kuvaa käyttäjän syötettä ja jolla halutaan korvata paikkatietomerkintä asiakirjapohjassa.
-            placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
-        Returns:
-            Palauttaa korvattujen sanojen lukumäärän.
-        """
-
-        return document_handler.replace_words(document, user_input, placeholder)
 
     def document_exists(self, filename):
         """Tarkistaa, löytyykö tietty asiakirjapohja kansiosta.

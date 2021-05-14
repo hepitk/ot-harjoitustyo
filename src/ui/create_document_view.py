@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import Tk, ttk, constants
 from services.program_service import program_service
+from services.document_handler import document_handler
 from docx import Document
 
 
@@ -36,7 +37,7 @@ class CreateDocumentView:
             for entry in self._gui_components[1::3]:
                 placeholder.append(entry.cget("text"))        
             for entry in range(0, len(user_input)):
-                replaced_words += program_service.replace_words (document, user_input[entry], placeholder[entry])        
+                replaced_words += document_handler.replace_words (document, user_input[entry], placeholder[entry])
             self._show_message("Asiakirja valmis.docx luotu kansioon /valmiit asiakirjat.\n" + str(replaced_words) + " paikkatietomerkintää korvattu.")
         else:
             self._show_message("Asiakirjapohjaa ei löydy kansiosta.\nLisää asiakirjapohja nimeltä " + self._filename + ".docx kansioon /asiakirjapohjat.")

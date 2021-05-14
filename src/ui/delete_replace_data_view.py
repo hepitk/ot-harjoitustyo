@@ -11,7 +11,6 @@ class DeleteReplaceDataView:
         self._frame2 = None
         self._canvas = None
         self._scrollbar = None
-        self._gui_components = []
         self._message_variable = None
         self._message_label = None
 
