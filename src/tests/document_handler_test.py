@@ -21,7 +21,7 @@ class TestDocumentHandler(unittest.TestCase):
             self.document, self.replace_word, self.placeholder)
         self.document_filled = Document("valmiit asiakirjat/valmis.docx")
         for par in self.document_filled.paragraphs:
-            if self.replace_word in par.text and replace_amount == 3:
+            if self.replace_word in par.text and replace_amount == 2:
                 self.assertEqual(par.text, par.text)
                 return True
         self.assertEqual("False", "True")
