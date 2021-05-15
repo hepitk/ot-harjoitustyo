@@ -63,10 +63,10 @@ class SettingsView:
         heading_label = ttk.Label(master=self._frame, text="Asetukset", font="font=TkHeadingFont 16 bold")
         
         self._font_name_variable = StringVar(self._frame)
-        self._font_name_variable.set("Asetettu fontti: " + document_handler.get_font_name())
+        self._font_name_variable.set("Asetettu fontti: " + document_handler.font_name)
         self._font_name_label = ttk.Label(master=self._frame, textvariable=self._font_name_variable, font="font=TkHeadingFont 10 bold")
         self._font_size_variable = StringVar(self._frame)
-        self._font_size_variable.set("Asetettu fonttikoko: " + str(document_handler.get_font_size()))
+        self._font_size_variable.set("Asetettu fonttikoko: " + str(document_handler.font_size))
         self._font_size_label = ttk.Label(master=self._frame, textvariable=self._font_size_variable, font="font=TkHeadingFont 10 bold")
 
         change_font_name_label = ttk.Label(master=self._frame, text="Vaihda fontti: ")

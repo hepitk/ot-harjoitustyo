@@ -53,7 +53,7 @@ class CreateDocumentView:
         self._canvas.yview_scroll(-1 * int((event.delta / 110)), "units")
 
     def _initialize(self):
-        document_entries = program_service.find_document_entries(self._filename)
+        document_entries = program_service.find_document_replace_data_entries(self._filename)
 
         self._frame = ttk.Frame(master=self._root)
         self._frame.pack(fill=BOTH, expand = 1)
@@ -76,7 +76,7 @@ class CreateDocumentView:
         self._message_label = ttk.Label(master=self._frame2, textvariable=self._message_variable, foreground="red")
 
         heading_label = ttk.Label(self._frame2, text="Täytä asiakirjapohja", font="font=TkHeadingFont 16 bold")
-        
+      
         for entry in range(0, len(document_entries)):
             self._gui_components.append(ttk.Label(self._frame2, text=(document_entries[entry].user_input_data) + ", korvaa paikkatiedon:"))                        
             self._gui_components.append(ttk.Label(self._frame2, text=(document_entries[entry].placeholder)))

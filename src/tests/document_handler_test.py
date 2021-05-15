@@ -15,6 +15,11 @@ class TestDocumentHandler(unittest.TestCase):
         self.replace_word = "[kana]"
         self.replace_data = ReplaceData(
             self.filename, self.user_question, self.placeholder)
+    
+    def test_set_font_works(self):
+        document_handler.set_font("Arial", 12)
+        self.assertEqual(document_handler.font_name, "Arial")
+        self.assertEqual(document_handler.font_size, 12)
 
     def test_replace_word_works(self):
         replace_amount = document_handler.replace_words(
@@ -25,3 +30,5 @@ class TestDocumentHandler(unittest.TestCase):
                 self.assertEqual(par.text, par.text)
                 return True
         self.assertEqual("False", "True")
+
+    

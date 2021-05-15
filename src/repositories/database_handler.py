@@ -8,13 +8,6 @@ def get_replace_data_by_row(row):
                        row["placeholder"],
                        ) if row else None
 
-def get_replace_data_by_row_with_id(row):
-    return ReplaceData(row["document_name"],
-                       row["user_input_data"],
-                       row["placeholder"],
-                       ) if row else None
-
-
 def get_all_document_names_by_row(row):
     return str(row["document_name"],) if row else None
 
@@ -38,7 +31,7 @@ class DatabaseHandler:
 
         return replace_data
 
-    def find_document_entries(self, filename):
+    def find_document_replace_data_entries(self, filename):
         cursor = self._connection.cursor()
 
         cursor.execute(

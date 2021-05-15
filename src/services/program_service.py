@@ -23,7 +23,7 @@ class ProgramService:
         database_handler.create(replace_data)
         return replace_data
 
-    def find_document_entries(self, filename):
+    def find_document_replace_data_entries(self, filename):
         """Etsii kaikki tietylle asiakirjapohjalle lisätyt täyttötiedot.
 
         Args:
@@ -32,7 +32,7 @@ class ProgramService:
             Asiakirjalle lisätyt täyttötiedot listana ReplaceData-olioita
         """
 
-        document_entries = database_handler.find_document_entries(filename)
+        document_entries = database_handler.find_document_replace_data_entries(filename)
         return document_entries
 
     def find_all_document_names(self):
@@ -78,7 +78,7 @@ class ProgramService:
         """Hakee kaikki järjestelmään lisätyt ReplaceData-oliot
 
         Returns:
-            Palauttaa ReplaceData-oliot listana järjestettynä aakkosjärjestykseen.
+            Palauttaa ReplaceData-oliot listana järjestettynä aakkosjärjestykseen asiakirjapohjan tiedostonimen mukaan.
         """
 
         return database_handler.find_all_replace_data_entries()

@@ -27,22 +27,6 @@ class DocumentHandler:
         self.font_size = font_size
         return True
 
-    def get_font_name (self):
-        """Palauttaa tämänhetkisen fontin nimen.
-
-        Returns:
-            Palauttaa fontin nimen merkkijonona.
-        """
-        return self.font_name
-    
-    def get_font_size (self):
-        """Palauttaa tämänhetkisen fontin koon
-
-        Returns:
-            Palauttaa fontin koon kokonaislukuna.
-        """
-        return self.font_size
-
     def replace_words(self, document, user_input, placeholder):
         """Korvaa paikkatiedon halutulla käyttäjän syötteellä, ja luo valmiin asiakirjan.
 
@@ -53,7 +37,6 @@ class DocumentHandler:
         Returns:
             Palauttaa korvattujen sanojen lukumäärän.
         """
-        print (type(self.font_size), flush=True)
         replace_amount = 0
 
         style = document.styles["Normal"]
