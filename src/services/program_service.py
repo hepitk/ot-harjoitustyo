@@ -17,7 +17,6 @@ class ProgramService:
         Returns:
             Luotu täyttötieto ReplaceData-olion muodossa.
         """
-
         replace_data = ReplaceData(
             document_name, user_input_data, placeholder)
         database_handler.create(replace_data)
@@ -29,9 +28,8 @@ class ProgramService:
         Args:
             filename: Merkkijono, joka kuvaa asiakirjapohjan nimeä ilman .docx-päätettä.
         Returns:
-            Asiakirjalle lisätyt täyttötiedot listana ReplaceData-olioita
+            Asiakirjapohjalle lisätyt täyttötiedot listana ReplaceData-olioita
         """
-
         document_entries = database_handler.find_document_replace_data_entries(filename)
         return document_entries
 
@@ -41,7 +39,6 @@ class ProgramService:
         Returns:
             Järjestelmään lisättyjen asiakirjapohjien nimet listana merkkijonoja.
         """
-
         document_names = database_handler.find_all_document_names()
         return document_names
 
@@ -64,12 +61,10 @@ class ProgramService:
 
         Args:
             filename: Merkkijono, joka kuvaa asiakirjapohjan nimeä ilman .docx-päätettä.
-            user_input_data: Merkkijono, joka kuvaa korvattavan tiedon tyyppiä. (Tässä turha, mutta on mukana ReplaceData-oliossa ja tietokantaoperaatiossa)
             placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
         Returns:
             Palauttaa True, jos paikkatieto löytyy järjestelmästä; False, jos paikkatietoa ei löydy.
         """
-
         if database_handler.find_filename_placeholder_pair(filename, placeholder):
             return True
         return False
@@ -80,7 +75,6 @@ class ProgramService:
         Returns:
             Palauttaa ReplaceData-oliot listana järjestettynä aakkosjärjestykseen asiakirjapohjan tiedostonimen mukaan.
         """
-
         return database_handler.find_all_replace_data_entries()
 
     def delete_replace_data(self, filename, placeholder):
@@ -92,7 +86,6 @@ class ProgramService:
         Returns:
             Palauttaa True, jos poisto onnistui; False, jos epäonnistui.
         """
-
         if database_handler.delete_replace_data(filename, placeholder):
             return True
         return False
