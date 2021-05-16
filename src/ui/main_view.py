@@ -12,6 +12,7 @@ class MainView:
         self._handle_show_delete_replace_data_view = handle_show_delete_replace_data_view
         self._handle_show_settings_view = handle_show_settings_view
         self._frame = None
+        self._document_name_variable = None
 
         self._initialize()
 
