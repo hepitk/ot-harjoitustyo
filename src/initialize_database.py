@@ -14,7 +14,7 @@ def create_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute("""
-        CREATE TABLE Replace_data (
+        CREATE TABLE IF NOT EXISTS Replace_data (
             id INTEGER PRIMARY KEY,
             document_name TEXT,
             user_input_data TEXT,
@@ -27,7 +27,6 @@ def create_tables(connection):
 def initialize_database():
     connection = get_database_connection()
 
-    drop_tables(connection)
     create_tables(connection)
 
 

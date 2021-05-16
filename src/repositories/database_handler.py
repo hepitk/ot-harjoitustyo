@@ -155,6 +155,8 @@ class DatabaseHandler:
             (filename, placeholder,)
         )
 
+        self._connection.commit()
+
         cursor.execute("""
             SELECT document_name, placeholder
             FROM Replace_data
