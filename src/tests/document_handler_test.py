@@ -1,6 +1,6 @@
 import unittest
-from services.document_handler import document_handler
 from docx import Document
+from services.document_handler import document_handler
 from entities.replace_data import ReplaceData
 
 
@@ -8,14 +8,12 @@ class TestDocumentHandler(unittest.TestCase):
     def setUp(self):
         self.filename = "asiakirjapohjat/viranhaltijapäätös_määräalan_myynti_pohja"
         self.document = Document(self.filename + ".docx")
-        self.document_filled = Document(
-            self.document.save("valmiit asiakirjat/valmis.docx"))
+        self.document_filled = Document(self.document.save("valmiit asiakirjat/valmis.docx"))
         self.user_question = "Syötä kiinteistötunnus:"
         self.placeholder = "[kiinteistötunnus]"
         self.replace_word = "[kana]"
-        self.replace_data = ReplaceData(
-            self.filename, self.user_question, self.placeholder)
-    
+        self.replace_data = ReplaceData(self.filename, self.user_question, self.placeholder)
+
     def test_set_font_works(self):
         document_handler.set_font("Arial", 12)
         self.assertEqual(document_handler.font_name, "Arial")
@@ -30,5 +28,3 @@ class TestDocumentHandler(unittest.TestCase):
                 self.assertEqual(par.text, par.text)
                 return True
         self.assertEqual("False", "True")
-
-    

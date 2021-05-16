@@ -25,7 +25,7 @@ class CreateDocumentView:
 
     def destroy(self):
         self._frame.destroy()
-    
+
     def _handle_button_click(self):
         if program_service.document_exists(self._filename):
             document = Document("asiakirjapohjat/" + self._filename + ".docx")
@@ -33,15 +33,27 @@ class CreateDocumentView:
             placeholder = []
             replaced_words = 0
             for entry in self._gui_components[2::3]:
-                user_input.append(entry.get())        
+                user_input.append(entry.get())
             for entry in self._gui_components[1::3]:
-                placeholder.append(entry.cget("text"))        
+                placeholder.append(entry.cget("text"))
             for entry in range(0, len(user_input)):
-                replaced_words += document_handler.replace_words (document, user_input[entry], placeholder[entry])
-            self._show_message("Asiakirja valmis.docx luotu kansioon /valmiit asiakirjat.\n" + str(replaced_words) + " paikkatietomerkintää korvattu.")
+                replaced_words += document_handler.replace_words(
+                    document,
+                    user_input[entry],
+                    placeholder[entry]
+                )
+            self._show_message(
+                "Asiakirja valmis.docx luotu kansioon /valmiit asiakirjat.\n"
+                + str(replaced_words)
+                + " paikkatietomerkintää korvattu."
+            )
         else:
-            self._show_message("Asiakirjapohjaa ei löydy kansiosta.\nLisää asiakirjapohja nimeltä " + self._filename + ".docx kansioon /asiakirjapohjat.")
-    
+            self._show_message(
+                "Asiakirjapohjaa ei löydy kansiosta.\nLisää asiakirjapohja nimeltä "
+                + self._filename
+                + ".docx kansioon /asiakirjapohjat."
+            )
+
     def _show_message(self, message):
         self._message_variable.set(message)
         self._message_label.grid()
@@ -65,7 +77,12 @@ class CreateDocumentView:
         self._scroll_bar.pack(side=RIGHT, fill=Y)
 
         self._canvas.configure(yscrollcommand=self._scroll_bar.set)
-        self._canvas.bind("<Configure>", lambda e: self._canvas.configure(scrollregion= self._canvas.bbox("all")))
+
+        self._canvas.bind(
+            "<Configure>",
+            lambda e: self._canvas.configure(scrollregion= self._canvas.bbox("all"))
+        )
+
         self._canvas.bind_all("<MouseWheel>", self._mouse_scroll)
 
         self._frame2 = ttk.Frame(self._canvas)
@@ -73,34 +90,59 @@ class CreateDocumentView:
         self._canvas.create_window((0,0), window=self._frame2, anchor="nw")
 
         self._message_variable = StringVar(self._frame2)
-        self._message_label = ttk.Label(master=self._frame2, textvariable=self._message_variable, foreground="red")
+        self._message_label = ttk.Label(
+            master=self._frame2,
+            textvariable=self._message_variable,
+            foreground="red"
+        )
 
-        heading_label = ttk.Label(self._frame2, text="Täytä asiakirjapohja", font="font=TkHeadingFont 16 bold")
-      
+        heading_label = ttk.Label(
+            self._frame2,
+            text="Täytä asiakirjapohja",
+            font="font=TkHeadingFont 16 bold"
+        )
+
         for entry in range(0, len(document_entries)):
-            self._gui_components.append(ttk.Label(self._frame2, text=(document_entries[entry].user_input_data) + ", korvaa paikkatiedon:"))                        
-            self._gui_components.append(ttk.Label(self._frame2, text=(document_entries[entry].placeholder)))
+            self._gui_components.append(ttk.Label(
+                self._frame2,
+                text=(document_entries[entry].user_input_data) + ", korvaa paikkatiedon:")
+            )
+            self._gui_components.append(ttk.Label(
+                self._frame2,
+                text=(document_entries[entry].placeholder))
+            )
             self._gui_components.append(ttk.Entry(self._frame2, width=60))
 
-        button = ttk.Button(
+        fill_button = ttk.Button(
             self._frame2,
             text="Täytä",
             command=self._handle_button_click,
             width=60
             )
 
-        button2 = ttk.Button(
+        back_button = ttk.Button(
             self._frame2,
             text="Palaa alkuvalikkoon",
             command=self._handle_show_main_view,
             width=60
             )
-        
+
+
         heading_label.grid(columnspan=2, padx=5, pady=5, sticky=constants.W)
+
         for entry in range(0, len(self._gui_components)):
-            self._gui_components[entry].grid(columnspan=2, sticky=(constants.W,constants.E), padx=5, pady=5)
-        if (self._filename != "Lisää ensin täyttötietoja"):
-            button.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
-        button2.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
+            self._gui_components[entry].grid(
+                columnspan=2,
+                sticky=(constants.W,constants.E),
+                padx=5,
+                pady=5
+            )
+
+        if self._filename != "Lisää ensin täyttötietoja":
+            fill_button.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
+
+        back_button.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
+
         self._message_label.grid(columnspan= 2, padx=5, pady=5)
+
         self._hide_message()

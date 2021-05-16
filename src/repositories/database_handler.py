@@ -47,9 +47,10 @@ class DatabaseHandler:
         """
         cursor = self._connection.cursor()
 
-        cursor.execute(
-            "insert into replace_data (document_name, user_input_data, placeholder)"
-            "values (?, ?, ?)",
+        cursor.execute("""
+            INSERT INTO Replace_data (document_name, user_input_data, placeholder)
+            VALUES (?, ?, ?)
+            """,
             (replace_data.filename, replace_data.user_input_data, replace_data.placeholder)
         )
 
@@ -67,8 +68,11 @@ class DatabaseHandler:
         """
         cursor = self._connection.cursor()
 
-        cursor.execute(
-            "select document_name, user_input_data, placeholder from replace_data where document_name = ?",
+        cursor.execute("""
+            SELECT document_name, user_input_data, placeholder
+            FROM Replace_data
+            WHERE document_name = ?
+            """,
             (filename,)
         )
 
@@ -85,7 +89,7 @@ class DatabaseHandler:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "select distinct document_name from replace_data"
+            "SELECT DISTINCT document_name FROM Replace_data"
         )
 
         result = cursor.fetchall()
@@ -103,8 +107,11 @@ class DatabaseHandler:
         """
         cursor = self._connection.cursor()
 
-        cursor.execute(
-            "select document_name, placeholder from replace_data where document_name = ? AND placeholder = ?",
+        cursor.execute("""
+            SELECT document_name, placeholder
+            FROM Replace_data
+            WHERE document_name = ? AND placeholder = ?
+            """,
             (filename, placeholder,)
         )
 
@@ -113,17 +120,18 @@ class DatabaseHandler:
         if result is None:
             return False
         return True
-    
+
     def find_all_replace_data_entries (self):
         """Hakee kaikki tietokantaan lisätyt ReplaceData-oliot
 
         Returns:
-            Palauttaa ReplaceData-oliot listana järjestettynä aakkosjärjestykseen asiakirjapohjan tiedostonimen mukaan.
+            Palauttaa ReplaceData-oliot listana järjestettynä aakkosjärjestykseen
+                asiakirjapohjan tiedostonimen mukaan.
         """
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "select * from replace_data order by document_name"
+            "SELECT * FROM Replace_data ORDER BY document_name COLLATE NOCASE"
         )
 
         result = cursor.fetchall()
@@ -137,17 +145,21 @@ class DatabaseHandler:
             filename: Merkkijono, joka kuvaa asiakirjapohjan nimeä ilman .docx-päätettä.
             placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
         Returns:
-            Palauttaa True, jos ReplaceData-oliota ei poistooperaation jälkeen löydy tietokannasta; False, jos löytyy.
+            Palauttaa True, jos ReplaceData-oliota ei poistooperaation jälkeen löydy tietokannasta
+                ; False, jos löytyy.
         """
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "delete from replace_data where document_name = ? AND placeholder = ?",
+            "DELETE FROM Replace_data WHERE document_name = ? AND placeholder = ?",
             (filename, placeholder,)
         )
 
-        cursor.execute(
-            "select document_name, placeholder from replace_data where document_name = ? AND placeholder = ?",
+        cursor.execute("""
+            SELECT document_name, placeholder
+            FROM Replace_data
+            WHERE document_name = ? AND placeholder = ?
+            """,
             (filename, placeholder,)
         )
 

@@ -1,9 +1,9 @@
 from docx.shared import Pt
-from docx import Document
 
 
 class DocumentHandler:
     """Luokka, joka vastaa asiakirjapohjien muokkaamisesta ja valmiiden asiakirjojen luomisesta."""
+
     def __init__(self):
         """Luokan konstruktori.
 
@@ -32,7 +32,8 @@ class DocumentHandler:
 
         Args:
             document: Muokattava asiakirjapohja docx-kirjaston Document-muodossa
-            user_input: Merkkijono, joka kuvaa käyttäjän syötettä ja jolla halutaan korvata paikkatietomerkintä asiakirjapohjassa.
+            user_input: Merkkijono, joka kuvaa käyttäjän syötettä
+                ja jolla halutaan korvata paikkatietomerkintä asiakirjapohjassa.
             placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
         Returns:
             Palauttaa korvattujen sanojen lukumäärän.
@@ -65,7 +66,8 @@ class DocumentHandler:
                     for par in cell.paragraphs:
                         if placeholder in par.text:
                             replace_amount += 1
-                            par.text = par.text.replace(placeholder, user_input)        
+                            par.text = par.text.replace(
+                                placeholder, user_input)
 
         document.save("valmiit asiakirjat/valmis.docx")
         return replace_amount

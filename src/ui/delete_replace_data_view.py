@@ -28,7 +28,7 @@ class DeleteReplaceDataView:
 
     def _hide_message(self):
         self._message_label.grid_remove()
-    
+
     def _handle_delete_replace_data(self, filename, placeholder):
         if program_service.delete_replace_data(filename, placeholder):
             self.destroy()
@@ -36,7 +36,7 @@ class DeleteReplaceDataView:
 
     def _mouse_scroll(self, event):
         self._canvas.yview_scroll(-1 * int((event.delta / 110)), "units")
-        
+
     def _initialize(self):
         replace_data_entries = program_service.find_all_replace_data_entries()
 
@@ -50,29 +50,77 @@ class DeleteReplaceDataView:
         self._scroll_bar.pack(side=RIGHT, fill=Y)
 
         self._canvas.configure(yscrollcommand=self._scroll_bar.set)
-        self._canvas.bind("<Configure>", lambda e: self._canvas.configure(scrollregion= self._canvas.bbox("all")))
+
+        self._canvas.bind(
+            "<Configure>",
+            lambda e: self._canvas.configure(scrollregion= self._canvas.bbox("all"))
+        )
+
         self._canvas.bind_all("<MouseWheel>", self._mouse_scroll)
 
         self._frame2 = ttk.Frame(self._canvas)
 
         self._canvas.create_window((0,0), window=self._frame2, anchor="nw")
 
-        self._message_variable = StringVar(self._frame2)
-        self._message_label = ttk.Label(master=self._frame2, textvariable=self._message_variable, foreground="red")
+        heading_label = ttk.Label(
+            self._frame2,
+            text="Poista täyttötietoja",
+            font="font=TkHeadingFont 16 bold"
+        )
 
-        heading_label = ttk.Label(self._frame2, text="Poista täyttötietoja", font="font=TkHeadingFont 16 bold")
-
-        button = ttk.Button(
+        back_button = ttk.Button(
             self._frame2,
             text="Palaa alkuvalikkoon",
             command=self._handle_show_main_view,
             width=60
             )
 
+        self._message_variable = StringVar(self._frame2)
+        self._message_label = ttk.Label(
+            master=self._frame2,
+            textvariable=self._message_variable,
+            foreground="red"
+        )
+
         heading_label.grid(columnspan=2, column=0, padx=5, pady=5, sticky=constants.W)
+
         for entry in range(0, len(replace_data_entries)):
-            ttk.Label(self._frame2, text=(replace_data_entries[entry].filename) + "  |  " + (replace_data_entries[entry].user_input_data) + "  |  " + (replace_data_entries[entry].placeholder)).grid(row=entry+1, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
-            Button(self._frame2, text=f"Poista", command=lambda entry=entry: self._handle_delete_replace_data(replace_data_entries[entry].filename, replace_data_entries[entry].placeholder)).grid(row=entry+1, column= 1, sticky=(constants.E, constants.W), padx=5, pady=5)
-        button.grid(columnspan=2, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
-        self._message_label.grid(columnspan= 2, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+            ttk.Label(
+                self._frame2,
+                text=replace_data_entries[entry].filename
+                    + "  |  " + replace_data_entries[entry].user_input_data
+                    + "  |  " + replace_data_entries[entry].placeholder
+            ).grid(
+                row=entry+1,
+                column=0,
+                sticky=(constants.E, constants.W),
+                padx=5,
+                pady=5
+            )
+
+            Button(
+                self._frame2,
+                text=f"Poista",
+                command=lambda entry=entry: self._handle_delete_replace_data(
+                    replace_data_entries[entry].filename,
+                    replace_data_entries[entry].placeholder
+                )
+            ).grid(
+                row=entry+1,
+                column= 1,
+                sticky=(constants.E, constants.W),
+                padx=5,
+                pady=5
+            )
+
+        back_button.grid(columnspan=2, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
+
+        self._message_label.grid(
+            columnspan= 2,
+            column=0,
+            padx=5,
+            pady=5,
+            sticky=(constants.E, constants.W)
+        )
+
         self._hide_message()

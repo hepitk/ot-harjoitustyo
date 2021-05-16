@@ -61,7 +61,7 @@ class UI:
         self._current_view = CreateDocumentView(
             self._root,
             self._show_main_view,
-            document_name_variable              
+            document_name_variable
         )
 
     def _show_settings_view(self):

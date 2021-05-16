@@ -1,7 +1,6 @@
 from docx import Document
 from entities.replace_data import ReplaceData
 from repositories.database_handler import database_handler
-from services.document_handler import document_handler
 
 
 class ProgramService:
@@ -12,7 +11,7 @@ class ProgramService:
 
         Args:
             document_name: Merkkijono, joka kuvaa asiakirjapohjan nimeä ilman .docx-päätettä.
-            user_input_data: Merkkijono, joka kuvaa korvattavan tiedon tyyppiä.
+            user_input_data: Merkkijono, joka kuvaa korvattavan paikkatietomerkinnän tietotyyppiä.
             placeholder: Merkkijono, joka kuvaa paikkatietomerkintää asiakirjapohjassa.
         Returns:
             Luotu täyttötieto ReplaceData-olion muodossa.
@@ -73,7 +72,8 @@ class ProgramService:
         """Hakee kaikki järjestelmään lisätyt ReplaceData-oliot
 
         Returns:
-            Palauttaa ReplaceData-oliot listana järjestettynä aakkosjärjestykseen asiakirjapohjan tiedostonimen mukaan.
+            Palauttaa ReplaceData-oliot listana järjestettynä aakkosjärjestykseen
+                asiakirjapohjan tiedostonimen mukaan.
         """
         return database_handler.find_all_replace_data_entries()
 

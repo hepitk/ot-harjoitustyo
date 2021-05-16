@@ -8,8 +8,8 @@ def main():
     window = Tk()
     window.title("TÄTI")
 
-    ui = UI(window)
-    ui.start()
+    u_int = UI(window)
+    u_int.start()
 
     window.mainloop()
 
