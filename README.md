@@ -1,16 +1,17 @@
 # TÄTI – Täyttöbotti
 
-Tämä sovellus luodaan työnantajani Vantaan kaupungin viranhaltijapäätösten ja kiinteistön kauppakirjojen laadintaa varten. 
-Ongelmana organisaatiossa on, että samoja tietoja syötetään moneen kertaan monen eri henkilön toimesta viranhaltijapäätöspohjiin ja viranhaltijapäätösten pohjalta tehtäviin kiinteistön kauppakirjapohjiin.
-Sovelluksen tarkoituksena on nopeuttaa Kaupunkiympäristön toimialan viranhaltijapäätöksien ja kiinteistön kauppakirjojen laadintaa.
-Antamalla sovellukselle oikeat tiedot (mm. osapuolet, kiinteistötunnukset yms.), sovellus osaa luoda word-muotoisten täyttämättömien asiakirjapohjien perusteella word-muotoiset täytetyt asiakirjat mm. viranhaltijapäätöksistä ja kauppakirjoista. 
-Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekemällä pohjien täyttämisestä nopeampaa ja vähentämällä turhaa työtä.
+Sovellus tarjoaa automaattisen .docx-muotoisten asiakirjapohjien täyttömahdollisuuden.
+Asiakirjapohjia täytettäessä eri organisaatioissa ongelmana on, että samoja tietoja joutuu täyttämään useaan kertaan eri kohtiin erilaisissa asiakirjapohjissa.
+Sovellus nopeuttaa asiakirjapohjien täyttäjien työtä: lisäämällä paikkatietomerkintöjä asiakirjapohjiin ja antamalla tarvittavat tiedot sovellukselle käyttäjä saa jatkossa täytettyä asiakirjapohjat nopeammin.
+Esim. jos käyttäjä haluaa lisätä kiinteistötunnuksen useaan eri kohtaan tietyssä asiakirjapohjassa, lisää hän paikkatietomerkinnän (esim. [kiinteistötunnus]) haluamiinsa kohtiin asiakirjapohjassa ja sovellukselle tarvittavat tiedot annettuaan saa hän valmiin täytetyn asiakirjapohjan. 
 
 ## Release
 
 [Release 1](https://github.com/hepitk/ot-harjoitustyo/releases/tag/viikko5)
 
 [Release 2](https://github.com/hepitk/ot-harjoitustyo/releases/tag/viikko6)
+
+[Final release](https://github.com/hepitk/ot-harjoitustyo/releases/tag/viikko7)
 
 
 ## Lähteet
@@ -77,7 +78,7 @@ Koodin formatoinnin saa komennolla:
 *poetry run invoke format*
 
 
-## Sovelluksen tila 
+## Sovelluksen tila ja puutteet
 
 ### Status 13.4.2021
 
@@ -110,3 +111,13 @@ Sovelluksen ulkoasussa, käyttöliittymässä, koodissa ja toiminnallisuuksissa 
 Sovelluksen ulkoasua ja käytettävyyttä on paranneltu. Konsoliin tulostuu virheilmoituksia vääristä syötteistä. Käyttäjälle annettavista ohjeista luovuttu turhana, ne voi laittaa tietotyypin yhteyteen tarvittaessa.
 
 Sovellukseen olisi vielä tehtävä näkymä, jossa näkee kaikki lisätyt täyttötiedot. Samassa näkymässä on oltava toiminnallisuus, joka mahdollistaa täyttötietojen poistamisen. Virheilmoitukset olisi konsolin asemesta saatava ponnahdusikkunaan. Täytä asiakirjapohja -ikkunaan olisi saatava scrollausmahdollisuus. Käyttöohjeeseen olisi hyvä saada kuvia.
+
+### Loppupalautus 16.5.2021
+
+Ohjelmaan on nyt toteutettu fontin muutosmahdollisuus, ja listtyjen täyttötietojen poistomahdollisuus. Virheilmoitukset näkyvät ilmoituksena, ikkunoita voi scrollata ja käyttöohjeeseen on lisätty kuvat.
+
+Ohjelma täyttää sille asetetut vaatimukset melko hyvin. Koodin luettavuudessa ja testeissä olisi osin parannettavaa. 
+
+Testeihin ei ole tehty testitietokantaa ja testaus tyhjentää tuotantotietokannan.
+
+Ohjelmassa käytettävän kirjaston heikkouksista johtuen tietyn kappaleen sisällä olevat muutokset poistuvat. Koitin erilaisia menetelmiä tämän ongelman poistamiseen, mutta en onnistunut löytämään täysin toimivaa ratkaisua ongelmaan. Nykyinen implementaatio on yrityksistäni paras vaihtoehto. Nyt esimerkiksi jos yksi sana keskellä kappaletta on lihavoituna, poistuu lihavointi. Lisäksi asiakirjapohjia täytettäessä asiakirjapohjan fontti ja fonttikoko muuttuvat käyttämään ohjelman fonttia ja fonttikokoa.

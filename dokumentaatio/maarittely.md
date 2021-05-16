@@ -1,25 +1,23 @@
-# Viranhaltijapäätösten ja kiinteistön kauppakirjojen luontisovellus
+# TÄTI – Täyttöbotti
 
-Tämä sovellus luodaan työnantajani Vantaan kaupungin viranhaltijapäätösten ja kiinteistön kauppakirjojen laadintaa varten. 
-Ongelmana organisaatiossa on, että samoja tietoja syötetään moneen kertaan monen eri henkilön toimesta viranhaltijapäätöspohjiin ja viranhaltijapäätösten pohjalta tehtäviin kiinteistön kauppakirjapohjiin.
-Sovelluksen tarkoituksena on nopeuttaa Kaupunkiympäristön toimialan viranhaltijapäätöksien ja kiinteistön kauppakirjojen laadintaa.
-Antamalla sovellukselle oikeat tiedot (mm. osapuolet, kiinteistötunnukset yms.), sovellus osaa luoda word-muotoisten täyttämättömien asiakirjapohjien perusteella word-muotoiset täytetyt asiakirjapohjat viranhaltijapäätöksistä ja kauppakirjoista. 
-Sovellus siis säästää työntekijöiden aikaa ja vähentää virheitä tekemällä pohjien täyttämisestä nopeampaa ja vähentämällä turhaa työtä.
+Sovellus tarjoaa automaattisen .docx-muotoisten asiakirjapohjien täyttömahdollisuuden.
+Asiakirjapohjia täytettäessä eri organisaatioissa ongelmana on, että samoja tietoja joutuu täyttämään useaan kertaan eri kohtiin erilaisissa asiakirjapohjissa.
+Sovellus nopeuttaa asiakirjapohjien täyttäjien työtä: lisäämällä paikkatietomerkintöjä asiakirjapohjiin ja antamalla tarvittavat tiedot sovellukselle käyttäjä saa jatkossa täytettyä asiakirjapohjat nopeammin.
+Esim. jos käyttäjä haluaa lisätä kiinteistötunnuksen useaan eri kohtaan tietyssä asiakirjapohjassa, lisää hän paikkatietomerkinnän (esim. [kiinteistötunnus]) haluamiinsa kohtiin asiakirjapohjassa ja sovellukselle tarvittavat tiedot annettuaan saa hän valmiin täytetyn asiakirjapohjan. 
 
 Toiminnallisuus:
 
-- TURHA Sovelluksessa on graafinen käyttöliittymä, josta valitaan ensin, onko kaupunki kaupassa ostajana vai myyjänä
-- TURHA Seuraavaksi sovellukseen annettaisiin kaupunginosa, sillä pohjat vaihtelevat hieman kaupunginosan mukaan
-- TEHTY Lopuksi käyttäjä antaa ainakin seuraavat tiedot (kaikkia tietoja ei tarvita jokaisessa kaupassa): myyjä ja ostaja (nimi, y-tunnus tai henkilötunnus, osoite, yhteyhenkilön nimi ja sähköposti), kiinteistötunnus ja kauppahinta (Lista täydentyy myöhemmin)
-- TEHTY Käyttäjä voi lisätä omia tietoja, paikkamerkkejä ja pohjia järjestelmään
+- Käyttäjä voi lisätä asiakirjapohjaan täyttötietoja. Näitä ovat asiakirjapohjan nimi, mitä tietoa käyttäjän halutaan täyttötiedon yhteydessä syöttävän ja tämän täyttötiedon paikkamerkki asiakirjapohjassa. 
+- Käyttäjä voi poistaa lisättyjä täyttötietoja.
+- Käyttäjä voi lisättyjen täyttötietojen perusteella luoda valmiin täytetyn asiakirjan, jonka sovellus luo automaattisesti käyttäjän antamien metatietojen perusteella.
+- Käyttäjä voi vaihtaa sovelluksen fontin.
 
 Tekninen toteutus:
 
-- TEHTY Tarkoitus on käyttää Pythonin python-docx-kirjastoa apuna (https://python-docx.readthedocs.io/en/latest/)
-- TEHTY/TURHA(KÄYTTÄJÄ LISÄÄ) Word-muotoiset pohjat löytyvät jo valmiiksi sovelluksen kansiosta, joten sovellus vain täyttäisi tarvittavat tiedot pohjien oikeisiin kohtiin määriteltynä paikkamerkkejä käyttäen ja tuloksena olisi täytetty pohja. Tyhjät pohjat saan Vantaan kaupungilta.
-- TEHTY Tarvittavat tiedot tallennetaan tietokantaan. Näitä ovat käyttäjältä kysyttävä kysymys, paikkamerkki, mahdolliset täyttöohjeet ja asiakirjapohjan nimi.
+- Sovelluksessa käytettiin Pythonin python-docx-kirjastoa apuna (https://python-docx.readthedocs.io/en/latest/).
+- Asiakirjapohjat lisätään kansioon /valmiit asiakirjat, valmis täytetty asiakirja tallentuu nimellä valmis.docx kansioon /valmiit asiakirjat.
+- Tarvittavat tiedot tallennetaan tietokantaan. Näitä ovat edellä mainitut asiakirjapohjan nimi, mitä tietoa käyttäjän halutaan täyttötiedon yhteydessä syöttävän ja tämän täyttötiedon paikkamerkki asiakirjapohjassa.
 
 Laajentamismahdollisuudet:
 
-- Sovellusta voi laajentaa niin, että se mahdollistaisi myös kiinteistövaihtojen, maanvuokrasopimukset ja muut sopimustyypit.
 - Lopullisessa muodossaan sovelluksen voisi laajentaa myös asiakirjapohjien hallintajärjestelmäksi, mutta tämä ei ole tämän harjoitustyön laajuudessa mahdollista.

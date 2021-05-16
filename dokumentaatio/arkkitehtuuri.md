@@ -12,11 +12,11 @@ Pakkaus ui sisältää käyttöliittymän, services sovelluslogiikan ja reposito
 
 ![Luokkakaavio](./kuvat/luokkakaavio.png)
 
-UI-luokka huolehtii käyttöliittymän logiikasta ja ProgramService suurimmasta osasta sovelluslogiikkaa. ProgramService-luokka välittää tietoja luokkien välillä ja tarjoaa kaikille käyttöliittymän toiminnoille metodin.
+UI-luokka huolehtii käyttöliittymän logiikasta ja ProgramService suurimmasta osasta sovelluslogiikkaa. ProgramService-luokka välittää tietoja luokkien välillä ja tarjoaa suurimmalle osalle käyttöliittymän toiminnoille metodin poislukien asiakirjaoperaatiot.
 
-ReplaceData-olioon tallennetaan asiakirjapohjan täytössä tarvittavat tiedot. Näitä ovat asiakirjapohjan nimi, mitä tietoa käyttäjän halutaan syöttävän ja tämän tiedon paikkamerkki asiakirjapohjassa.
+ReplaceData-olioon tallennetaan asiakirjapohjan täytössä tarvittavat tiedot. Näitä ovat asiakirjapohjan nimi, mitä tietoa käyttäjän halutaan täyttötiedon yhteydessä syöttävän ja tämän täyttötiedon paikkamerkki asiakirjapohjassa.
 
-DocumentHandler-luokka huolehtii korvaavan sanan kirjoittamisesta .docx-muotoisesta asiakirjapohjasta löytyvän paikkatiedon paikalle sekä asiakirjan lukemisesta ja tallentamisesta.
+DocumentHandler-luokka huolehtii korvaavan sanan kirjoittamisesta .docx-muotoisesta asiakirjapohjasta löytyvän paikkatiedon paikalle sekä asiakirjan lukemisesta ja tallentamisesta. Luokka tarjoaa käyttöliittymälle asiakirjaoperaatiot.
 Asiakirjapohjat löytyvät ohjelman juuresta kansiosta "asiakirjapohjat", ja valmiit asiakirjat tallennetaan "valmiit asiakirjat"-kansioon.
 
 DatabaseHandler-luokka vastaa tiedon pysyväistalennetamisesta tietokantaan ja tietokannasta hakemisesta.
@@ -34,5 +34,5 @@ Dokumentaatio-kansiossa on ohjelman dokumentaatio.
 
 Src-kansiosta löytyy ohjelmakoodi.
 
-Valmiit asiakirjat -kansioon tallentuvat valmiit täytetyt asiakirjat .docx-muodossa.
+Valmiit asiakirjat -kansioon tallentuu valmis täytetty asiakirja nimellä valmis.docx.
 
