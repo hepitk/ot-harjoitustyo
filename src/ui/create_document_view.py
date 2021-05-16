@@ -144,5 +144,3 @@ class CreateDocumentView:
         back_button.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
 
         self._message_label.grid(columnspan= 2, padx=5, pady=5)
-
-        self._hide_message()

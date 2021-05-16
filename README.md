@@ -29,6 +29,8 @@ Sovelluksen teossa on käytetty apuna materiaalia osoitteista https://ohjelmisto
 
 [Arkkitehtuuri](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/hepitk/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
+
 
 ## Asennus
 
@@ -121,3 +123,5 @@ Ohjelma täyttää sille asetetut vaatimukset melko hyvin. Koodin luettavuudessa
 Testeihin ei ole tehty testitietokantaa ja testaus tyhjentää tuotantotietokannan.
 
 Ohjelmassa käytettävän kirjaston heikkouksista johtuen tietyn kappaleen sisällä olevat muutokset poistuvat. Koitin erilaisia menetelmiä tämän ongelman poistamiseen, mutta en onnistunut löytämään täysin toimivaa ratkaisua ongelmaan. Nykyinen implementaatio on yrityksistäni paras vaihtoehto. Nyt esimerkiksi jos yksi sana keskellä kappaletta on lihavoituna, poistuu lihavointi. Lisäksi asiakirjapohjia täytettäessä asiakirjapohjan fontti ja fonttikoko muuttuvat käyttämään ohjelman fonttia ja fonttikokoa.
+
+Täytä asiakirjapohja -toiminnallisuus hyväksyy tyhjät kentät, mutta tämä on tarkoituksellista, sillä joskus jokin kenttä saatetaan haluta jättää tyhjäksi.
